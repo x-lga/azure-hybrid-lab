@@ -14,3 +14,4 @@ To validate AZ-104 Azure Administrator competencies through a fully functional h
 | Azure Virtual Machine (Windows) | Azure | Cloud-joined server VM |
 | Azure Virtual Machine (Ubuntu) | Azure | Linux workload VM |
 | Azure Virtual Network | Azure | Isolated VNet with segmented subnets |
+| Azure Entra ID (AAD) | Azure | Cloud identity — synced from on-prem AD |
