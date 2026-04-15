@@ -16,3 +16,4 @@ To validate AZ-104 Azure Administrator competencies through a fully functional h
 | Azure Virtual Network | Azure | Isolated VNet with segmented subnets |
 | Azure Entra ID (AAD) | Azure | Cloud identity — synced from on-prem AD |
 | Azure AD Connect | On-prem VM | Syncs on-prem AD objects to Entra ID |
+| Microsoft Intune | Azure | MDM/endpoint management |
