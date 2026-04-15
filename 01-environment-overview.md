@@ -17,3 +17,4 @@ To validate AZ-104 Azure Administrator competencies through a fully functional h
 | Azure Entra ID (AAD) | Azure | Cloud identity — synced from on-prem AD |
 | Azure AD Connect | On-prem VM | Syncs on-prem AD objects to Entra ID |
 | Microsoft Intune | Azure | MDM/endpoint management |
+| Azure Monitor + Log Analytics | Azure | Monitoring and alerting |
