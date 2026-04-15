@@ -38,6 +38,6 @@ On-premises (Proxmox lab):          Azure (Free Trial / M365 Dev):
                                     │  Microsoft Intune                │
                                     └──────────────────────────────────┘
 ```
-```
+
 
 ---
