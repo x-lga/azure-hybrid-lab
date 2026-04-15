@@ -11,3 +11,4 @@ To validate AZ-104 Azure Administrator competencies through a fully functional h
 | Component | Platform | Purpose |
 |-----------|---------|---------|
 | Windows Server 2022 DC | Proxmox VM | On-premises AD domain controller |
+| Azure Virtual Machine (Windows) | Azure | Cloud-joined server VM |
