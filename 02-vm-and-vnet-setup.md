@@ -60,3 +60,19 @@ VNet            : vnet-hybrid-lab
 Subnet          : subnet-servers
 NSG             : nsg-subnet-servers
 ```
+
+---
+
+## Deploy Ubuntu VM
+
+```
+Resource Group  : rg-hybrid-lab
+Name            : vm-ubuntu
+Image           : Ubuntu Server 22.04 LTS
+Size            : Standard_B1s
+Authentication  : SSH public key (generate with ssh-keygen)
+VNet            : vnet-hybrid-lab
+Subnet          : subnet-linux
+```
+
+---
