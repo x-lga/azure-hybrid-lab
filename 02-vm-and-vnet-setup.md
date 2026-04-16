@@ -21,3 +21,13 @@ Subnets:
   Name: subnet-linux     | Address: 10.20.2.0/24
   Name: AzureBastionSubnet | Address: 10.20.254.0/27  (required name for Bastion)
 ```
+
+---
+
+## Create NSG (Network Security Group)
+
+Azure Portal → Network Security Groups → Create
+
+```
+Name: nsg-subnet-servers
+Resource Group: rg-hybrid-lab
