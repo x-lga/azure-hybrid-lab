@@ -44,3 +44,19 @@ Associate NSG with subnet-servers after creation.
 ---
 
 ## Deploy Windows Server VM
+
+Azure Portal → Virtual Machines → Create
+
+```
+Resource Group  : rg-hybrid-lab
+Name            : vm-win-server
+Region          : same as VNet
+Image           : Windows Server 2022 Datacenter
+Size            : Standard_B1s
+Username        : localadmin
+Password        : (strong password)
+Public IP       : None (use Bastion for access)
+VNet            : vnet-hybrid-lab
+Subnet          : subnet-servers
+NSG             : nsg-subnet-servers
+```
