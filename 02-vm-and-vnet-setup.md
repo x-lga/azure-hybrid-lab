@@ -40,3 +40,7 @@ Inbound rules to ADD:
 
 Associate NSG with subnet-servers after creation.
 ```
+
+---
+
+## Deploy Windows Server VM
