@@ -31,3 +31,12 @@ Azure Portal → Network Security Groups → Create
 ```
 Name: nsg-subnet-servers
 Resource Group: rg-hybrid-lab
+
+Inbound rules to ADD:
+  Priority | Name              | Port  | Protocol | Source      | Action
+  100      | Allow-RDP-Admin   | 3389  | TCP      | Your IP     | Allow
+  200      | Allow-WinRM       | 5985  | TCP      | VNet        | Allow
+  1000     | Deny-All-Inbound  | *     | *        | *           | Deny
+
+Associate NSG with subnet-servers after creation.
+```
