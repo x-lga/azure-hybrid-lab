@@ -5,3 +5,5 @@
 All resources deployed in Azure free trial or M365 Developer Sandbox. Use B1s VMs (1 vCPU, 1GB RAM — free tier eligible).
 
 ---
+
+## Create the Virtual Network
