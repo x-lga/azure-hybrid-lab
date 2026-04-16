@@ -1,4 +1,4 @@
-# Azure Hybrid Lab — VM and Virtual Network Setup
+# Azure Hybrid Lab - VM and Virtual Network Setup
 
 ## Azure Free Tier Note
 
@@ -74,5 +74,15 @@ Authentication  : SSH public key (generate with ssh-keygen)
 VNet            : vnet-hybrid-lab
 Subnet          : subnet-linux
 ```
+
+---
+
+## Verify Connectivity Between VMs
+
+From Windows VM (via Bastion or Run Command):
+```powershell
+Test-NetConnection -ComputerName 10.20.2.4 -Port 22   # Ping Ubuntu
+```
+
 
 ---
