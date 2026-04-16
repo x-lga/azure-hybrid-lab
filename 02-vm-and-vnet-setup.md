@@ -16,3 +16,8 @@ Name            : vnet-hybrid-lab
 Region          : (nearest to you)
 Address space   : 10.20.0.0/16
 
+Subnets:
+  Name: subnet-servers   | Address: 10.20.1.0/24
+  Name: subnet-linux     | Address: 10.20.2.0/24
+  Name: AzureBastionSubnet | Address: 10.20.254.0/27  (required name for Bastion)
+```
