@@ -7,3 +7,12 @@ All resources deployed in Azure free trial or M365 Developer Sandbox. Use B1s VM
 ---
 
 ## Create the Virtual Network
+
+Azure Portal → Virtual Networks → Create
+
+```
+Resource Group  : rg-hybrid-lab
+Name            : vnet-hybrid-lab
+Region          : (nearest to you)
+Address space   : 10.20.0.0/16
+
