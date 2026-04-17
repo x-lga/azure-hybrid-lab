@@ -128,7 +128,7 @@ Connect PHS configuration, RBAC at correct scopes, Azure Monitor alerting, and
 Intune device compliance are all components that an Azure cloud administrator
 supports day-to-day in production.
 
-The troubleshooting log demonstrates that the lab was actually built and tested —
+The troubleshooting log demonstrates that the lab was actually built and tested -
 not just described. The five issues documented represent real diagnostic scenarios:
 AD Connect sync failures, DNS blocking sync traffic, wrong monitoring agent selection,
 hardware compatibility constraints in Intune compliance, and VM allocation failures.
