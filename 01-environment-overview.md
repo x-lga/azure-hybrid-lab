@@ -59,3 +59,26 @@ On-premises (Proxmox home lab):         Microsoft Azure (Free Trial / M365 Dev T
 ```
 
 ---
+
+## Azure Free Tier Usage
+
+All resources in this lab were deployed within Azure free trial or M365 Developer
+Sandbox limits to demonstrate that this environment is reproducible by anyone with
+free Azure access:
+
+| Resource | Free Tier Availability |
+|----------|----------------------|
+| B1s VM (Windows) | 750 hours/month free for 12 months |
+| B1s VM (Linux) | 750 hours/month free for 12 months |
+| Azure Bastion | Not free - used Developer SKU at ~$0.19/hr. Shutdown when not in use. |
+| Log Analytics | First 5GB/month free |
+| Azure Monitor | Basic metrics free |
+| Microsoft Intune | Included in M365 Developer E5 Sandbox (free 90-day tenant) |
+| Azure AD Connect | Free download - no Azure cost |
+| Entra ID | Free tier sufficient for this lab |
+
+**Cost management note:** All VMs are configured to auto-shutdown at 23:00 daily.
+Azure Bastion was manually started/stopped to control cost. Total estimated cost
+for running this lab intermittently over 30 days: under $15 USD.
+
+---
