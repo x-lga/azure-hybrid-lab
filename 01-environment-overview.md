@@ -53,7 +53,7 @@ On-premises (Proxmox home lab):         Microsoft Azure (Free Trial / M365 Dev T
 └──────────────────────────────┘         │  Azure Entra ID (synced from contoso.local)   │
                                          │  NSG: nsg-subnet-servers                      │
                                          │  Azure Bastion                                │
-                                         │  Log Analytics Workspace: law-hybrid-lab       │
+                                         │  Log Analytics Workspace: law-hybrid-lab      │
                                          │  Microsoft Intune (M365 Dev Tenant)           │
                                          └───────────────────────────────────────────────┘
 ```
