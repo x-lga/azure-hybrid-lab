@@ -79,3 +79,15 @@ servers, application servers, and management servers each in their own subnet wi
 separate NSGs enforcing traffic segmentation.
 
 ---
+
+## Create the Network Security Group
+
+
+Azure Portal → Network Security Groups → Create
+
+Resource Group  : rg-hybrid-lab
+Name            : nsg-subnet-servers
+Region          : (same region)
+
+
+After creation, configure inbound rules:
