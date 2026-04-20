@@ -37,3 +37,29 @@ Region          : (choose nearest to you - East Africa: South Africa North or UA
 > to the lab only, and to delete everything cleanly when the lab is no longer needed.
 
 ---
+
+## Create the Virtual Network
+
+
+Azure Portal → Virtual Networks → Create
+
+Basics:
+  Resource Group  : rg-hybrid-lab
+  Name            : vnet-hybrid-lab
+  Region          : (same as resource group)
+
+IP Addresses:
+  Address space   : 10.20.0.0/16
+  Subnets:
+    Name              : subnet-servers
+    Address range     : 10.20.1.0/24
+    (This is where the Windows Server VM lives)
+
+    Name              : subnet-linux
+    Address range     : 10.20.2.0/24
+    (This is where the Ubuntu VM lives)
+
+    Name              : AzureBastionSubnet
+    Address range     : 10.20.254.0/27
+    (REQUIRED name - Azure Bastion will not deploy without this exact name)
+    (Minimum /27 required for Bastion)
