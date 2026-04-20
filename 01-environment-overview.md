@@ -32,3 +32,30 @@ and support.
 | Microsoft Intune | Azure / M365 Dev | MDM enrollment, compliance policy, app deploy | Management |
 
 ---
+
+## Network Architecture
+
+```
+On-premises (Proxmox home lab):         Microsoft Azure (Free Trial / M365 Dev Tenant):
+┌──────────────────────────────┐         ┌───────────────────────────────────────────────┐
+│  Windows Server 2022         │         │  Resource Group: rg-hybrid-lab                │
+│  Hostname: dc01              │         │  Virtual Network: 10.20.0.0/16                │
+│  IP: 192.168.10.10           │         │                                               │
+│  Domain: contoso.local       │         │  ┌──────────────────────────────────────┐     │
+│  Roles: AD DS, DNS, DHCP     │──AD ───►│  │  subnet-servers: 10.20.1.0/24        │     │
+│                              │  Connect│  │  ├─ vm-win-server (10.20.1.4)        │     │
+│  Azure AD Connect installed  │──Sync──►│  │  └─ AzureBastionSubnet adjacent      │     │
+│  on this machine             │         │  │                                      │     │
+│                              │         │  │  subnet-linux: 10.20.2.0/24          │     │
+│  Windows 10 client           │         │  │  └─ vm-ubuntu (10.20.2.4)            │     │
+│  Domain-joined               │         │  └──────────────────────────────────────┘     │
+│  Intune enrolled             │         │                                               │
+└──────────────────────────────┘         │  Azure Entra ID (synced from contoso.local)   │
+                                         │  NSG: nsg-subnet-servers                      │
+                                         │  Azure Bastion                                │
+                                         │  Log Analytics Workspace: law-hybrid-lab       │
+                                         │  Microsoft Intune (M365 Dev Tenant)           │
+                                         └───────────────────────────────────────────────┘
+```
+
+---
