@@ -82,3 +82,24 @@ Azure Bastion was manually started/stopped to control cost. Total estimated cost
 for running this lab intermittently over 30 days: under $15 USD.
 
 ---
+
+## Lab Checklist - All Components Deployed and Verified
+
+- [x] Windows Server 2022 DC deployed on Proxmox with AD DS, DNS, DHCP
+- [x] Azure Virtual Network created with two subnets
+- [x] NSG deployed and associated with subnet-servers
+- [x] Azure Bastion deployed (Developer SKU)
+- [x] Windows Server VM deployed (no public IP, Bastion access only)
+- [x] Ubuntu VM deployed (no public IP, Bastion access only)
+- [x] Azure AD Connect installed on Proxmox DC and configured with Password Hash Sync
+- [x] User sync verified - on-premises users visible in Entra ID portal
+- [x] RBAC assignments configured at three scopes (subscription, resource group, resource)
+- [x] Log Analytics Workspace created and linked to Azure Monitor
+- [x] Diagnostic Settings enabled on both VMs
+- [x] KQL queries tested and verified returning data
+- [x] CPU alert rule created, tested by generating load, alert email received
+- [x] Intune device enrolled, compliance policy created, device shows Compliant
+- [x] Win32 app deployed silently via Intune
+
+
+---
