@@ -71,3 +71,11 @@ in a real enterprise Azure environment, you plan address space for growth, VNet 
 and on-premises VPN connectivity. Designing a /16 from the start and carving /24 subnets
 out of it is standard enterprise practice. Starting with a /24 VNet and running out of
 space when you need to add a new subnet is a real operational headache.
+
+**Why separate subnets for servers and Linux?**
+Separate subnets allow separate NSG policies per subnet. In this lab, the servers subnet
+has different inbound rules than the Linux subnet. In production, you might have database
+servers, application servers, and management servers each in their own subnet with
+separate NSGs enforcing traffic segmentation.
+
+---
