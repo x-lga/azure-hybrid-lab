@@ -91,3 +91,17 @@ Region          : (same region)
 
 
 After creation, configure inbound rules:
+
+
+Azure Portal → nsg-subnet-servers → Inbound security rules → Add
+
+Rule 1 - Allow RDP from your IP only (for Bastion use - this is belt-and-suspenders):
+  Source               : IP Addresses
+  Source IP            : [Your home/work public IP - check at whatismyip.com]
+  Destination          : Any
+  Destination port     : 3389
+  Protocol             : TCP
+  Action               : Allow
+  Priority             : 100
+  Name                 : Allow-RDP-MyIP
+
