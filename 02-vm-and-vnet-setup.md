@@ -63,3 +63,11 @@ IP Addresses:
     Address range     : 10.20.254.0/27
     (REQUIRED name - Azure Bastion will not deploy without this exact name)
     (Minimum /27 required for Bastion)
+
+
+**Why /16 address space?**
+A /16 provides 65,536 addresses - far more than needed for this lab. This is intentional:
+in a real enterprise Azure environment, you plan address space for growth, VNet peering,
+and on-premises VPN connectivity. Designing a /16 from the start and carving /24 subnets
+out of it is standard enterprise practice. Starting with a /24 VNet and running out of
+space when you need to add a new subnet is a real operational headache.
