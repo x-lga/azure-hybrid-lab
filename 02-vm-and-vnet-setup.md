@@ -17,3 +17,23 @@ of Azure VMs, making them constant targets for brute-force attacks. This lab use
 Azure Bastion to provide browser-based RDP/SSH without any public IP on the VMs.
 
 ---
+
+## Create the Resource Group
+
+All lab resources are grouped together to simplify billing visibility, access control,
+and cleanup.
+
+
+Azure Portal → Resource Groups → Create
+
+Subscription    : [Your free trial subscription]
+Resource Group  : rg-hybrid-lab
+Region          : (choose nearest to you - East Africa: South Africa North or UAE North)
+
+
+> **Why a single resource group?**
+> All lab resources share the same lifecycle - they are created together and deleted
+> together. A single resource group makes it easy to assign a Contributor role scoped
+> to the lab only, and to delete everything cleanly when the lab is no longer needed.
+
+---
