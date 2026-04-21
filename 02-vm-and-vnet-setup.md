@@ -140,4 +140,10 @@ Rule 5 - Deny all other inbound:
   Protocol             : Any
   Action               : Deny
   Priority             : 4000
-  Name                 : Deny-All-Inbound  
+  Name                 : Deny-All-Inbound
+
+
+**Associate the NSG with subnet-servers:**
+
+Azure Portal → vnet-hybrid-lab → Subnets → subnet-servers →
+  Network Security Group → nsg-subnet-servers → Save  
