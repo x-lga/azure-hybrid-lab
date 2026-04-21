@@ -191,9 +191,9 @@ Basics:
   VM Name         : vm-win-server
   Region          : (same region)
   Image           : Windows Server 2022 Datacenter - x64 Gen2
-  Size            : Standard_B1s (1 vCPU, 1GB RAM — free tier eligible)
+  Size            : Standard_B1s (1 vCPU, 1GB RAM - free tier eligible)
   Username        : localadmin
-  Password        : [Strong password — minimum 12 chars, upper+lower+digit+symbol]
+  Password        : [Strong password - minimum 12 chars, upper+lower+digit+symbol]
 
 Disks:
   OS disk type    : Standard SSD (cheaper than Premium for a lab)
@@ -224,7 +224,7 @@ Azure Portal → vm-win-server → Connect → Bastion →
   Password : [your password]
   → Connect
 ```
-A browser tab opens with a full RDP session — no RDP client, no public IP needed.
+A browser tab opens with a full RDP session - no RDP client, no public IP needed.
 
 ---
 
@@ -257,6 +257,38 @@ Management:
 ```bash
 # Run on your local machine (Linux/Mac/WSL)
 ssh-keygen -t rsa -b 4096 -C "azure-lab-key"
-# Public key is in ~/.ssh/id_rsa.pub — paste this into the Azure portal
-# Private key stays on your machine — never upload it anywhere
+# Public key is in ~/.ssh/id_rsa.pub - paste this into the Azure portal
+# Private key stays on your machine - never upload it anywhere
 ```
+
+**Connect to Ubuntu via Bastion:**
+```
+Azure Portal → vm-ubuntu → Connect → Bastion →
+  Authentication type : SSH Private Key
+  Username            : azureuser
+  SSH private key     : (paste the contents of your private key file)
+  → Connect
+```
+
+---
+
+## Verify VM-to-VM Connectivity
+
+From the Windows VM (via Bastion), open PowerShell and test connectivity to Ubuntu:
+```powershell
+# Ping the Ubuntu VM by its private IP
+Test-NetConnection -ComputerName 10.20.2.4 -Port 22
+
+# Expected result:
+# TcpTestSucceeded : True
+# This confirms the VMs can communicate within the VNet
+```
+
+If this fails, check:
+1. Is the Ubuntu VM running? (Azure Portal → vm-ubuntu → Status)
+2. Does subnet-linux have an NSG that blocks inbound traffic from subnet-servers?
+3. Is the Ubuntu VM's local firewall (UFW) blocking port 22?
+   (Connect via Bastion and run: `sudo ufw status`)
+
+
+---
