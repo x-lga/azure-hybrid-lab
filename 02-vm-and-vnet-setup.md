@@ -210,3 +210,9 @@ Management:
 ```
 
 Wait for deployment to complete (3–5 minutes).
+
+**Verify deployment:**
+```
+Azure Portal → Virtual Machines → vm-win-server → Overview
+Status should show: Running
+```
