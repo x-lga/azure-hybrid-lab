@@ -113,3 +113,31 @@ Rule 2 - Allow WinRM from within VNet (for PowerShell remoting between VMs):
   Action               : Allow
   Priority             : 200
   Name                 : Allow-WinRM-VNet
+
+Rule 3 - Allow SSH from within VNet (for management between VMs):
+  Source               : VirtualNetwork
+  Destination          : VirtualNetwork
+  Destination port     : 22
+  Protocol             : TCP
+  Action               : Allow
+  Priority             : 210
+  Name                 : Allow-SSH-VNet
+
+Rule 4 - Allow HTTPS outbound for Azure services:
+  (This is an outbound rule - add under Outbound security rules)
+  Source               : Any
+  Destination          : Internet
+  Destination port     : 443
+  Protocol             : TCP
+  Action               : Allow
+  Priority             : 100
+  Name                 : Allow-HTTPS-Outbound
+
+Rule 5 - Deny all other inbound:
+  Source               : Any
+  Destination          : Any
+  Destination port     : *
+  Protocol             : Any
+  Action               : Deny
+  Priority             : 4000
+  Name                 : Deny-All-Inbound  
