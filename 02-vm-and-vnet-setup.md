@@ -216,3 +216,14 @@ Wait for deployment to complete (3–5 minutes).
 Azure Portal → Virtual Machines → vm-win-server → Overview
 Status should show: Running
 ```
+
+**Connect via Bastion:**
+```
+Azure Portal → vm-win-server → Connect → Bastion →
+  Username : localadmin
+  Password : [your password]
+  → Connect
+```
+A browser tab opens with a full RDP session — no RDP client, no public IP needed.
+
+---
