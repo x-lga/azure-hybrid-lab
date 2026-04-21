@@ -180,3 +180,33 @@ within minutes of being created. Bastion provides browser-based RDP/SSH over HTT
 is explicitly tested in the AZ-104 exam.
 
 ---
+
+## Deploy Windows Server VM
+
+```
+Azure Portal → Virtual Machines → Create → Azure Virtual Machine
+
+Basics:
+  Resource Group  : rg-hybrid-lab
+  VM Name         : vm-win-server
+  Region          : (same region)
+  Image           : Windows Server 2022 Datacenter - x64 Gen2
+  Size            : Standard_B1s (1 vCPU, 1GB RAM — free tier eligible)
+  Username        : localadmin
+  Password        : [Strong password — minimum 12 chars, upper+lower+digit+symbol]
+
+Disks:
+  OS disk type    : Standard SSD (cheaper than Premium for a lab)
+
+Networking:
+  Virtual network : vnet-hybrid-lab
+  Subnet          : subnet-servers
+  Public IP       : None (access via Bastion only)
+  NIC NSG         : None (subnet-level NSG already applied)
+
+Management:
+  Auto-shutdown   : Enable → 23:00 daily (reduces cost)
+  Boot diagnostics: Enable with managed storage account
+```
+
+Wait for deployment to complete (3–5 minutes).
