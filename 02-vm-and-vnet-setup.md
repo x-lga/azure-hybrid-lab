@@ -147,3 +147,11 @@ Rule 5 - Deny all other inbound:
 
 Azure Portal → vnet-hybrid-lab → Subnets → subnet-servers →
   Network Security Group → nsg-subnet-servers → Save  
+
+**Why deny-all at the end?**
+Azure NSGs have an implicit deny-all at the end. Adding an explicit Deny-All-Inbound
+rule at priority 4000 makes this policy visible and intentional - it documents the
+security posture rather than relying on implicit behaviour that a future engineer might
+not be aware of.
+
+---  
