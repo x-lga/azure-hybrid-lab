@@ -252,3 +252,11 @@ Networking:
 Management:
   Auto-shutdown   : Enable → 23:00 daily
 ```
+
+**Generate SSH key pair (if you do not have one):**
+```bash
+# Run on your local machine (Linux/Mac/WSL)
+ssh-keygen -t rsa -b 4096 -C "azure-lab-key"
+# Public key is in ~/.ssh/id_rsa.pub — paste this into the Azure portal
+# Private key stays on your machine — never upload it anywhere
+```
