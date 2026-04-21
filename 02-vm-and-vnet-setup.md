@@ -227,3 +227,28 @@ Azure Portal → vm-win-server → Connect → Bastion →
 A browser tab opens with a full RDP session — no RDP client, no public IP needed.
 
 ---
+
+## Deploy Ubuntu VM
+
+```
+Azure Portal → Virtual Machines → Create
+
+Basics:
+  Resource Group  : rg-hybrid-lab
+  VM Name         : vm-ubuntu
+  Region          : (same region)
+  Image           : Ubuntu Server 22.04 LTS - x64 Gen2
+  Size            : Standard_B1s
+  Authentication  : SSH public key
+  Username        : azureuser
+  SSH public key  : (generate with ssh-keygen or paste existing public key)
+
+Networking:
+  Virtual network : vnet-hybrid-lab
+  Subnet          : subnet-linux
+  Public IP       : None
+  NIC NSG         : None
+
+Management:
+  Auto-shutdown   : Enable → 23:00 daily
+```
