@@ -154,4 +154,20 @@ rule at priority 4000 makes this policy visible and intentional - it documents t
 security posture rather than relying on implicit behaviour that a future engineer might
 not be aware of.
 
----  
+---
+
+## Deploy Azure Bastion
+
+
+Azure Portal → Bastions → Create
+
+Resource Group  : rg-hybrid-lab
+Name            : bastion-hybrid-lab
+Region          : (same region)
+Virtual Network : vnet-hybrid-lab
+Subnet          : AzureBastionSubnet (auto-populated if named correctly)
+Public IP       : Create new → bastion-pip
+SKU             : Developer (lowest cost - sufficient for this lab)
+
+
+Bastion deploys in 5-10 minutes.
