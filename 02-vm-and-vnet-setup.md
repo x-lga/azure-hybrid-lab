@@ -171,3 +171,12 @@ SKU             : Developer (lowest cost - sufficient for this lab)
 
 
 Bastion deploys in 5-10 minutes.
+
+**Why Azure Bastion instead of public IP + RDP?**
+See `08-design-decisions-and-justifications.md` for the full explanation. Short version:
+RDP exposed to the internet on a public IP receives automated brute-force attacks
+within minutes of being created. Bastion provides browser-based RDP/SSH over HTTPS
+443 without any management port exposed. It is the Microsoft-recommended approach and
+is explicitly tested in the AZ-104 exam.
+
+---
