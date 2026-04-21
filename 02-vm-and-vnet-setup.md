@@ -105,3 +105,11 @@ Rule 1 - Allow RDP from your IP only (for Bastion use - this is belt-and-suspend
   Priority             : 100
   Name                 : Allow-RDP-MyIP
 
+Rule 2 - Allow WinRM from within VNet (for PowerShell remoting between VMs):
+  Source               : VirtualNetwork
+  Destination          : VirtualNetwork
+  Destination port     : 5985
+  Protocol             : TCP
+  Action               : Allow
+  Priority             : 200
+  Name                 : Allow-WinRM-VNet
