@@ -117,7 +117,7 @@ For this lab, Express Settings is appropriate. It configures:
 Welcome screen → Use express settings
 
 Connecting to Entra ID:
-  Username : [Global Admin UPN for Azure tenant — e.g., admin@contosodemo.onmicrosoft.com]
+  Username : [Global Admin UPN for Azure tenant - e.g., admin@contosodemo.onmicrosoft.com]
   Password : [Global Admin password]
   → Next
 
