@@ -199,3 +199,15 @@ Connectors tab:
 ```
 
 ---
+
+## Step 5 - Test Hybrid SSO
+
+Verify that an on-premises user can authenticate to Azure/M365 cloud services:
+
+1. In a browser (InPrivate/Incognito), navigate to `portal.office.com`
+2. Sign in with: `testuser1@contosodemo.onmicrosoft.com`
+   (the synced UPN format — `samaccountname@tenant.onmicrosoft.com`)
+3. Enter the password set in Step 1 (`Welcome@12345!`)
+4. The user should successfully authenticate and see the M365 portal
+5. If prompted for MFA: the account has no MFA registered. This is expected in a lab.
+   In production, MFA would be configured via Conditional Access.
