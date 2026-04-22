@@ -249,3 +249,17 @@ $ADConnector.Partitions | ForEach-Object {
 ```
 
 ---
+
+## Key Concepts Validated by This Configuration
+
+| Concept | How It Is Implemented in This Lab |
+|---------|----------------------------------|
+| Hybrid Identity | On-premises AD synced to Entra ID via AD Connect |
+| Password Hash Sync (PHS) | User passwords hashed on-prem and synced to Entra ID - cloud auth works even if on-prem is offline |
+| UPN matching | .local domain lab uses onmicrosoft.com UPN suffix - in production, verified custom domain is used |
+| Sync scope | All objects by default; OU filtering demonstrated to show production scoping approach |
+| Sync cycle | 30-minute automatic delta sync + manual delta and initial sync via PowerShell |
+| Sync error resolution | Synchronisation Service Manager operations tab - documented in Step 4 |
+
+
+---
