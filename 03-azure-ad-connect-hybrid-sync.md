@@ -166,3 +166,20 @@ Start-ADSyncSyncCycle -PolicyType Delta
 # Force a full sync cycle (re-syncs all objects — use sparingly)
 # Start-ADSyncSyncCycle -PolicyType Initial
 ```
+
+### Verify users appear in Azure Portal
+```
+Azure Portal → Entra ID → Users → All users
+
+Filter by:
+  Sync status : Synced from on-premises
+
+You should see testuser1 and testuser2 with:
+  Source      : Windows Server AD
+  Identity    : Synced
+```
+
+If users do not appear within 5 minutes of the sync cycle completing:
+1. Check the AD Connect Synchronisation Service Manager (Start → Miicrosoft Entra Connect → Synchronization Service)
+2. Look for errors in the Operations tab
+3. Common issues: firewall blocking sync, wrong credentials, UPN mismatch
