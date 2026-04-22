@@ -206,7 +206,7 @@ Verify that an on-premises user can authenticate to Azure/M365 cloud services:
 
 1. In a browser (InPrivate/Incognito), navigate to `portal.office.com`
 2. Sign in with: `testuser1@contosodemo.onmicrosoft.com`
-   (the synced UPN format — `samaccountname@tenant.onmicrosoft.com`)
+   (the synced UPN format - `samaccountname@tenant.onmicrosoft.com`)
 3. Enter the password set in Step 1 (`Welcome@12345!`)
 4. The user should successfully authenticate and see the M365 portal
 5. If prompted for MFA: the account has no MFA registered. This is expected in a lab.
@@ -216,5 +216,36 @@ Verify that an on-premises user can authenticate to Azure/M365 cloud services:
 - Password hash was successfully synced from on-prem AD to Entra ID
 - The cloud account is active and usable
 - Hybrid identity is functioning end-to-end
+
+---
+
+## Step 6 - Configure Scoped Sync (Optional - Demonstrates OU Filtering)
+
+In production, you would not sync every user and group in the domain to the cloud.
+You sync only the accounts that need cloud access. AD Connect supports OU-based
+filtering to limit which objects are synced.
+
+```powershell
+# View current sync configuration
+Get-ADSyncConnector | Select-Object Name, Type, ConnectivityParameters
+
+# To configure OU filtering via the AD Connect wizard:
+# Start → Microsoft Entra Connect → Microsoft Entra Connect →
+# Change user sign-in → No (just change sync settings) →
+# Customize synchronization options →
+# Domain and OU filtering →
+# Deselect OUs you do not want synced →
+# Configure
+
+# To check which OUs are currently in scope:
+$ADConnector = Get-ADSyncConnector |
+    Where-Object { $_.Type -eq "AD" }
+$ADConnector.Partitions | ForEach-Object {
+    Write-Host "Partition: $($_.Name)"
+    $_.ContainerInclusionList | ForEach-Object {
+        Write-Host "  Included OU: $_"
+    }
+}
+```
 
 ---
