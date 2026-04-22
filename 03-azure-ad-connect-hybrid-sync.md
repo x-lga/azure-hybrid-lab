@@ -22,3 +22,16 @@ identity (Entra ID only, no on-prem AD) is less common - most organisations with
 existing Windows infrastructure use hybrid.
 
 ---
+
+## Prerequisites
+
+Before installing Azure AD Connect, verify:
+
+**On-premises side:**
+- [ ] Windows Server 2022 DC is running with AD DS promoted and contoso.local domain active
+- [ ] You have Domain Admin credentials
+- [ ] The DC can reach the internet (required for sync to Azure)
+- [ ] The DC meets AD Connect requirements:
+  - .NET Framework 4.7.2 or later (included in Server 2022)
+  - PowerShell 5.1 or later (included in Server 2022)
+  - Windows Server 2016 or later (Server 2022 ✓)
