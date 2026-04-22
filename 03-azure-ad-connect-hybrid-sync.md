@@ -103,3 +103,10 @@ real email address.
 4. Run the installer as Administrator
 
 ---
+
+## Step 3 — Configure AD Connect with Express Settings
+
+For this lab, Express Settings is appropriate. It configures:
+- Password Hash Synchronisation (PHS)
+- Automatic synchronisation every 30 minutes
+- All users and groups in the domain synced (can be scoped later)
