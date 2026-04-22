@@ -94,3 +94,12 @@ verified custom domain and update UPN suffixes to match so users log in with the
 real email address.
 
 ---
+## Step 2 - Download and Install Azure AD Connect
+
+1. On the **domain controller**, open a browser
+2. Navigate to: `https://www.microsoft.com/en-us/download/details.aspx?id=47594`
+   Or search Microsoft Download Center for "Microsoft Entra Connect"
+3. Download the installer (`AzureADConnect.msi`)
+4. Run the installer as Administrator
+
+---
