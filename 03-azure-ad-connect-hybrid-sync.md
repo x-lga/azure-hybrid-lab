@@ -211,3 +211,10 @@ Verify that an on-premises user can authenticate to Azure/M365 cloud services:
 4. The user should successfully authenticate and see the M365 portal
 5. If prompted for MFA: the account has no MFA registered. This is expected in a lab.
    In production, MFA would be configured via Conditional Access.
+
+**Successful sign-in confirms:**
+- Password hash was successfully synced from on-prem AD to Entra ID
+- The cloud account is active and usable
+- Hybrid identity is functioning end-to-end
+
+---
