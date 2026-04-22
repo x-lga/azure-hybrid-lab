@@ -104,9 +104,44 @@ real email address.
 
 ---
 
-## Step 3 — Configure AD Connect with Express Settings
+## Step 3 - Configure AD Connect with Express Settings
 
 For this lab, Express Settings is appropriate. It configures:
 - Password Hash Synchronisation (PHS)
 - Automatic synchronisation every 30 minutes
 - All users and groups in the domain synced (can be scoped later)
+
+**Installation wizard walkthrough:**
+
+```
+Welcome screen → Use express settings
+
+Connecting to Entra ID:
+  Username : [Global Admin UPN for Azure tenant — e.g., admin@contosodemo.onmicrosoft.com]
+  Password : [Global Admin password]
+  → Next
+
+Connecting to AD DS:
+  Forest   : contoso.local
+  Username : CONTOSO\Administrator  (or your domain admin account)
+  Password : [Domain Admin password]
+  → Add Directory → Next
+
+Entra ID sign-in configuration:
+  You will see a warning that contoso.local is not a verified domain in Azure.
+  This is expected for a lab with a .local domain.
+  Check: "Continue without matching all UPN suffixes to verified domains"
+  → Next
+
+Ready to configure:
+  Review the summary:
+    Synchronize all users and groups : Yes
+    Enable Exchange hybrid deployment : No
+    Password hash synchronization    : Yes
+    Auto upgrade                     : Enabled
+  → Install
+
+Installation takes approximately 5–10 minutes.
+```
+
+---
