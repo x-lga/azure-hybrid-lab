@@ -42,3 +42,41 @@ Before installing Azure AD Connect, verify:
 - [ ] You know the tenant's default domain (e.g., `contosodemo.onmicrosoft.com`)
 
 ---
+
+## Step 1 - Prepare On-Premises AD
+
+### Create a test OU and test users for sync validation
+```powershell
+# Run on the domain controller
+Import-Module ActiveDirectory
+
+# Create an OU for cloud-synced users
+New-ADOrganizationalUnit -Name "Azure-Sync" -Path "DC=contoso,DC=local"
+
+# Create test users in this OU
+$SecurePW = ConvertTo-SecureString "Welcome@12345!" -AsPlainText -Force
+
+New-ADUser `
+    -Name "Test User One" `
+    -GivenName "Test" `
+    -Surname "User One" `
+    -SamAccountName "testuser1" `
+    -UserPrincipalName "testuser1@contoso.local" `
+    -AccountPassword $SecurePW `
+    -Enabled $true `
+    -Path "OU=Azure-Sync,DC=contoso,DC=local" `
+    -ChangePasswordAtLogon $false
+
+New-ADUser `
+    -Name "Test User Two" `
+    -GivenName "Test" `
+    -Surname "User Two" `
+    -SamAccountName "testuser2" `
+    -UserPrincipalName "testuser2@contoso.local" `
+    -AccountPassword $SecurePW `
+    -Enabled $true `
+    -Path "OU=Azure-Sync,DC=contoso,DC=local" `
+    -ChangePasswordAtLogon $false
+
+Write-Host "Test users created in OU=Azure-Sync"
+```
