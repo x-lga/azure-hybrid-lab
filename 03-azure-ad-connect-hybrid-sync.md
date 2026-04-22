@@ -80,3 +80,17 @@ New-ADUser `
 
 Write-Host "Test users created in OU=Azure-Sync"
 ```
+
+### Check UPN suffix alignment
+AD Connect requires that the on-premises UPN suffix matches a verified domain in
+Entra ID, OR the accounts use the default `onmicrosoft.com` domain.
+
+For this lab, the on-premises UPN (`testuser1@contoso.local`) will sync to Entra ID
+as `testuser1@contosodemo.onmicrosoft.com` (the tenant's default domain). This is the
+expected behaviour in a lab with a `.local` domain that is not registered in Azure DNS.
+
+In production, companies add their actual domain (`company.co.ke`) to Entra ID as a
+verified custom domain and update UPN suffixes to match so users log in with their
+real email address.
+
+---
