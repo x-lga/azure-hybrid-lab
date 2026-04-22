@@ -145,3 +145,24 @@ Installation takes approximately 5–10 minutes.
 ```
 
 ---
+
+## Step 4 - Verify Sync Completed
+
+### Check sync status from the DC
+```powershell
+# Import the AD Connect Sync module
+Import-Module ADSync
+
+# Check scheduler status - should show NextSyncCycleStartTimeInUTC
+Get-ADSyncScheduler
+
+# Check last sync run results
+Get-ADSyncRunProfileResult | Select-Object -Last 5 |
+    Select-Object RunProfileName, RunResult, StartDate, EndDate
+
+# Force a delta sync cycle (syncs only changes since last run)
+Start-ADSyncSyncCycle -PolicyType Delta
+
+# Force a full sync cycle (re-syncs all objects — use sparingly)
+# Start-ADSyncSyncCycle -PolicyType Initial
+```
