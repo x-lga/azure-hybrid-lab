@@ -183,3 +183,19 @@ If users do not appear within 5 minutes of the sync cycle completing:
 1. Check the AD Connect Synchronisation Service Manager (Start → Miicrosoft Entra Connect → Synchronization Service)
 2. Look for errors in the Operations tab
 3. Common issues: firewall blocking sync, wrong credentials, UPN mismatch
+
+### Check the Synchronisation Service Manager for errors
+```
+Start Menu → Microsoft Entra Connect → Synchronization Service
+
+Operations tab:
+  All recent sync profiles should show Result: "success"
+  Any "stopped-extension-dll-exception" or "stopped-server" = configuration issue
+
+Connectors tab:
+  Both connectors should show: Status "Idle" (not "Stopped" or "Error")
+  - Azure Active Directory (contosodemo.onmicrosoft.com)
+  - Active Directory Domain Services (contoso.local)
+```
+
+---
