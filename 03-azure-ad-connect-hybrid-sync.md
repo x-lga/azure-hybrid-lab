@@ -35,3 +35,10 @@ Before installing Azure AD Connect, verify:
   - .NET Framework 4.7.2 or later (included in Server 2022)
   - PowerShell 5.1 or later (included in Server 2022)
   - Windows Server 2016 or later (Server 2022 ✓)
+
+**Azure side:**
+- [ ] You have a Global Administrator account in Entra ID
+- [ ] The Entra ID tenant is available (Azure Portal → Entra ID shows tenant)
+- [ ] You know the tenant's default domain (e.g., `contosodemo.onmicrosoft.com`)
+
+---
