@@ -171,3 +171,13 @@ other VMs, the networking configuration, storage accounts, or any other resource
 - Access the storage account containing the VM disk
 - Manage any other VM
 - Assign roles
+
+**How to assign:**
+```
+Azure Portal → Virtual Machines → vm-win-server →
+  Access Control (IAM) → Add → Add Role Assignment
+
+Role   : Virtual Machine Contributor
+Scope  : (set at the resource level — vm-win-server)
+Members: [VM operator user]
+```
