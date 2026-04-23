@@ -165,3 +165,9 @@ other VMs, the networking configuration, storage accounts, or any other resource
 - View VM metrics and diagnostics
 - Resize the VM
 - Add/remove data disks
+
+**What Virtual Machine Contributor cannot do:**
+- Manage the VNet or NSG the VM is connected to
+- Access the storage account containing the VM disk
+- Manage any other VM
+- Assign roles
