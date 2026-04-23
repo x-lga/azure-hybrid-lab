@@ -181,3 +181,22 @@ Role   : Virtual Machine Contributor
 Scope  : (set at the resource level — vm-win-server)
 Members: [VM operator user]
 ```
+
+**How to assign via PowerShell:**
+```powershell
+# Get the VM resource ID
+$VM = Get-AzVM -ResourceGroupName "rg-hybrid-lab" -Name "vm-win-server"
+
+# Get the operator user
+$Operator = Get-AzADUser -UserPrincipalName "vmoperator@contosodemo.onmicrosoft.com"
+
+# Assign Virtual Machine Contributor at resource scope
+New-AzRoleAssignment `
+    -ObjectId           $Operator.Id `
+    -RoleDefinitionName "Virtual Machine Contributor" `
+    -Scope              $VM.Id
+
+Write-Host "VM Contributor assigned to $($Operator.DisplayName) for vm-win-server only"
+```
+
+---
