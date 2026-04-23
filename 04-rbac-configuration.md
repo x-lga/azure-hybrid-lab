@@ -120,3 +120,13 @@ for compliance review - but must not be able to make any changes.
 - Create, modify, or delete any resource
 - View secrets in Key Vault (Key Vault has its own access policy)
 - Access VM guest OS data
+
+**How to assign:**
+```
+Azure Portal → Subscriptions → [your subscription] →
+  Access Control (IAM) → Add → Add Role Assignment
+
+Role   : Reader
+Scope  : (the subscription scope is already set at this level)
+Members: [auditor user or group]
+```
