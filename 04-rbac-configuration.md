@@ -200,3 +200,13 @@ Write-Host "VM Contributor assigned to $($Operator.DisplayName) for vm-win-serve
 ```
 
 ---
+
+## RBAC Assignment Summary for This Lab
+
+| User/Principal | Role | Scope | Business Justification |
+|---------------|------|-------|----------------------|
+| junioradmin | Contributor | rg-hybrid-lab (Resource Group) | Manages lab resources; cannot affect other RGs or subscription settings |
+| auditor | Reader | Subscription | Read-only compliance review access across all resources |
+| vmoperator | Virtual Machine Contributor | vm-win-server (Resource) | Operates one specific VM; no access to networking or other resources |
+
+---
