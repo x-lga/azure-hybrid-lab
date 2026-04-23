@@ -149,3 +149,12 @@ Write-Host "Reader role assigned at subscription scope for audit access"
 ```
 
 ---
+
+### Scenario 3 — VM Operator: Virtual Machine Contributor at Resource Scope
+
+**Business requirement:** An operations team member needs to be able to start, stop,
+and restart a specific production VM (vm-win-server), but should have no access to
+other VMs, the networking configuration, storage accounts, or any other resources.
+
+**Role:** Virtual Machine Contributor
+**Scope:** vm-win-server (individual resource)
