@@ -109,3 +109,9 @@ for compliance review - but must not be able to make any changes.
 
 **Role:** Reader
 **Scope:** Subscription
+
+**What Reader can do:**
+- View all resources and their configurations
+- Read all resource properties and metadata
+- View activity logs and diagnostic data
+- Export resource inventory and configuration to CSV
