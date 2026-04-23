@@ -28,3 +28,11 @@ it only within that resource group. Always assign at the narrowest scope that
 achieves the objective.
 
 ---
+
+## Lab RBAC Scenarios
+
+This lab implements RBAC at three different scopes to demonstrate the principle
+in practice, not just in theory.
+
+---
+
