@@ -115,3 +115,8 @@ for compliance review - but must not be able to make any changes.
 - Read all resource properties and metadata
 - View activity logs and diagnostic data
 - Export resource inventory and configuration to CSV
+
+**What Reader cannot do:**
+- Create, modify, or delete any resource
+- View secrets in Key Vault (Key Vault has its own access policy)
+- Access VM guest OS data
