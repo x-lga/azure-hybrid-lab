@@ -210,3 +210,44 @@ Write-Host "VM Contributor assigned to $($Operator.DisplayName) for vm-win-serve
 | vmoperator | Virtual Machine Contributor | vm-win-server (Resource) | Operates one specific VM; no access to networking or other resources |
 
 ---
+
+## Built-in Role Reference - Most Used at L1 Cloud Admin
+
+| Role | Can Create/Modify Resources? | Can Assign Roles? | Typical Use Case |
+|------|---------------------------|------------------|-----------------|
+| Owner | Yes | Yes | Full control including role assignment — used for subscription owners |
+| Contributor | Yes | No | Engineers who deploy and manage resources but should not manage access |
+| Reader | No | No | Auditors, monitoring accounts, read-only views |
+| User Access Administrator | No (resources) | Yes | IAM-only access — assigns roles without resource access |
+| Virtual Machine Contributor | VMs only | No | Ops teams managing VM lifecycle |
+| Network Contributor | VNet, NSG, PIPs | No | Network administrators |
+| Monitoring Contributor | Alerts, dashboards, action groups | No | Monitoring/observability team |
+| Storage Blob Data Contributor | Blob storage data | No | Application data access |
+| Key Vault Secrets Officer | Key Vault secrets | No | Secrets management |
+
+---
+
+## Verifying All Assignments Are Correct
+
+```powershell
+# List all role assignments across the subscription
+# This shows the complete access picture
+Get-AzRoleAssignment |
+    Select-Object DisplayName, RoleDefinitionName, Scope |
+    Sort-Object Scope |
+    Format-Table -AutoSize
+
+# List assignments for a specific resource group only
+Get-AzRoleAssignment -ResourceGroupName "rg-hybrid-lab" |
+    Select-Object DisplayName, RoleDefinitionName, Scope |
+    Format-Table -AutoSize
+
+# Check what a specific user can do (effective permissions)
+$UserID = (Get-AzADUser -UserPrincipalName "junioradmin@contosodemo.onmicrosoft.com").Id
+Get-AzRoleAssignment -ObjectId $UserID |
+    Select-Object RoleDefinitionName, Scope |
+    Format-Table -AutoSize
+```
+
+
+---
