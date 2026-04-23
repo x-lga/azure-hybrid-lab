@@ -130,3 +130,22 @@ Role   : Reader
 Scope  : (the subscription scope is already set at this level)
 Members: [auditor user or group]
 ```
+
+**How to assign via PowerShell:**
+```powershell
+# Get the subscription ID
+$SubID = (Get-AzSubscription).Id
+
+# Get the auditor user
+$Auditor = Get-AzADUser -UserPrincipalName "auditor@contosodemo.onmicrosoft.com"
+
+# Assign Reader at subscription scope
+New-AzRoleAssignment `
+    -ObjectId           $Auditor.Id `
+    -RoleDefinitionName "Reader" `
+    -Scope              "/subscriptions/$SubID"
+
+Write-Host "Reader role assigned at subscription scope for audit access"
+```
+
+---
