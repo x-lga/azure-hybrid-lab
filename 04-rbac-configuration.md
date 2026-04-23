@@ -100,3 +100,12 @@ Get-AzRoleAssignment -ResourceGroupName "rg-hybrid-lab" |
 ```
 
 ---
+
+### Scenario 2 - Read-Only Auditor: Reader at Subscription Scope
+
+**Business requirement:** An internal auditor or compliance officer needs to be able
+to view all resources, configurations, and activity logs across the entire subscription
+for compliance review - but must not be able to make any changes.
+
+**Role:** Reader
+**Scope:** Subscription
