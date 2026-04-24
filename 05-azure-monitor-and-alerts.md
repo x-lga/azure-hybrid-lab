@@ -9,3 +9,7 @@
 
 Azure monitoring consists of three interconnected components that are frequently
 confused with each other in exam questions and real-world discussions:
+
+**Azure Monitor:** The overarching platform that collects metrics (numeric time-series
+data like CPU %, memory %, disk I/O) and logs (structured event data). Think of it as
+the collection and routing layer.
