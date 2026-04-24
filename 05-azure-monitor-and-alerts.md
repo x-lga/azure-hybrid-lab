@@ -126,3 +126,31 @@ Notifications:
   Name              : Email-IT-Team
   Email             : [your email address]
 ```
+
+### Create the Alert Rule:
+```
+Azure Portal → Monitor → Alerts → Create → Alert Rule
+
+Scope:
+  Resource scope : vm-win-server
+
+Condition:
+  Signal type    : Metrics
+  Signal name    : Percentage CPU
+  Threshold type : Static
+  Operator       : Greater than
+  Threshold      : 80
+  Aggregation    : Average
+  Aggregation granularity: 5 minutes
+  Frequency of evaluation: 1 minute
+
+Actions:
+  Action group   : ag-it-alerts
+
+Details:
+  Alert rule name     : alert-cpu-high-vmwinserver
+  Severity            : 2 - Warning
+  Enable alert rule   : Yes
+```
+
+---
