@@ -4,3 +4,8 @@
 **Last reviewed:** 2026-07
 
 ---
+
+## The Azure Monitoring Stack - Understanding the Components
+
+Azure monitoring consists of three interconnected components that are frequently
+confused with each other in exam questions and real-world discussions:
