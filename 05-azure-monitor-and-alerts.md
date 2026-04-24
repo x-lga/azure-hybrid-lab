@@ -93,3 +93,17 @@ Workspace : law-hybrid-lab
 
 This installs the Azure Monitor Agent and configures basic Linux metric collection.
 ```
+
+### Enable Activity Log collection for the resource group:
+```
+Azure Portal → Monitor → Activity Log → Export Activity Logs
+
+Subscription: [your subscription]
+Destination : Log Analytics workspace → law-hybrid-lab
+```
+
+Activity logs record all control-plane operations - who created, modified, or
+deleted Azure resources and when. This is essential for security investigation
+and change tracking.
+
+---
