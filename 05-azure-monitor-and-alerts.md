@@ -278,3 +278,42 @@ Perf
 
 ---
 
+## Step 6 - Create a Disk Space Alert
+
+Using the same Action Group (ag-it-alerts), create a second alert for disk space:
+
+```
+Azure Portal → Monitor → Alerts → Create → Alert Rule
+
+Scope           : vm-win-server
+Signal          : Metrics → OS Disk Used Bytes (or Disk Queue Length)
+Threshold       : [set based on disk size - e.g., > 85% of total disk]
+Aggregation     : Average over 5 minutes
+Action Group    : ag-it-alerts
+Name            : alert-disk-high-vmwinserver
+Severity        : 2 - Warning
+```
+
+Alternatively, use a Log Analytics scheduled query alert:
+```
+Azure Portal → Monitor → Alerts → Create → Alert Rule
+
+Scope           : law-hybrid-lab (Log Analytics Workspace)
+Condition       : Custom log search
+
+KQL:
+Perf
+| where ObjectName == "LogicalDisk"
+    and CounterName == "% Free Space"
+    and InstanceName != "_Total"
+| where CounterValue < 15
+| summarize AggregatedValue = min(CounterValue) by Computer, InstanceName
+
+Threshold       : Greater than 0 (any result = alert)
+Frequency       : Every 5 minutes
+Action Group    : ag-it-alerts
+Name            : alert-low-disk-kql
+```
+
+
+---
