@@ -154,3 +154,37 @@ Details:
 ```
 
 ---
+
+## Step 4 - Test the Alert Rule
+
+Generate CPU load on the VM to trigger the alert and confirm the email is received.
+
+```powershell
+# Run this on vm-win-server (connect via Bastion)
+# This script generates sustained CPU load for 6 minutes
+# (enough to breach the 80% threshold and trigger the 5-minute aggregation window)
+
+Write-Host "Generating CPU load — alert should fire in 5–7 minutes..."
+$EndTime = (Get-Date).AddMinutes(6)
+$x = 0
+while ((Get-Date) -lt $EndTime) {
+    $x = [math]::Sqrt($x + 1.0)
+    # This tight loop consumes CPU without meaningful output
+}
+Write-Host "CPU stress test complete."
+```
+
+**What to expect:**
+- After 5-6 minutes of sustained load above 80%, the alert should fire
+- An email arrives at the address configured in the Action Group
+- The email subject will be: "Alert: alert-cpu-high-vmwinserver fired"
+- The body includes: current metric value, threshold, resource affected, time
+
+**View the fired alert:**
+```
+Azure Portal → Monitor → Alerts → Alert History
+```
+The alert should show with state: Fired. After the CPU stress completes and CPU
+drops below 80%, the alert resolves and another email is sent with state: Resolved.
+
+---
