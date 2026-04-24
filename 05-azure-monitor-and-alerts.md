@@ -22,3 +22,18 @@ to investigate events.
 from each resource and where to send it. Without Diagnostic Settings, Azure Monitor
 collects only a limited set of platform metrics. Diagnostic Settings enable rich log
 collection (Windows Event Logs, Syslog, performance counters, activity logs).
+
+**The relationship:**
+```
+Azure Resource (VM, NSG, App Service)
+    │
+    │ Diagnostic Settings route:
+    ├── Metrics → Azure Monitor Metrics (short retention, real-time)
+    └── Logs    → Log Analytics Workspace (long retention, queryable with KQL)
+                        │
+                        └── Queried with KQL
+                        └── Used by Azure Sentinel (SIEM)
+                        └── Used by Alert Rules
+```
+
+---
