@@ -51,3 +51,13 @@ Pricing tier    : Pay-As-You-Go
 ```
 
 Wait for deployment (1-2 minutes).
+
+**Why a single workspace for the entire lab?**
+In this lab, all resources are managed by the same team and have the same access
+requirements. A single workspace simplifies querying - you can correlate events
+from the VM, the NSG, and the activity log in one query. In production, workspace
+design is more complex: some organisations use one workspace per environment (dev,
+test, prod), others per team, others per data sensitivity level. The tradeoff is
+between query simplicity (one workspace) and access isolation (multiple workspaces).
+
+---
