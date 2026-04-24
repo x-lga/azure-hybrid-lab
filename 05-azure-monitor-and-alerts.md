@@ -107,3 +107,8 @@ deleted Azure resources and when. This is essential for security investigation
 and change tracking.
 
 ---
+
+## Step 3 - Create a CPU Alert Rule
+
+This alert demonstrates the full Azure Monitor alerting stack: metric collection →
+threshold evaluation → action group notification.
