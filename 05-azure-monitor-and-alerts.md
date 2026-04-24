@@ -17,3 +17,8 @@ the collection and routing layer.
 **Log Analytics Workspace:** The database where logs are stored and where KQL queries
 run. Azure Monitor routes logs to the Log Analytics Workspace. You query the workspace
 to investigate events.
+
+**Diagnostic Settings:** The configuration that tells Azure Monitor what to collect
+from each resource and where to send it. Without Diagnostic Settings, Azure Monitor
+collects only a limited set of platform metrics. Diagnostic Settings enable rich log
+collection (Windows Event Logs, Syslog, performance counters, activity logs).
