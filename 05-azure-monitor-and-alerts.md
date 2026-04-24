@@ -37,3 +37,17 @@ Azure Resource (VM, NSG, App Service)
 ```
 
 ---
+
+## Step 1 - Create a Log Analytics Workspace
+
+```
+Azure Portal → Log Analytics Workspaces → Create
+
+Resource Group  : rg-hybrid-lab
+Name            : law-hybrid-lab
+Region          : (same region as VMs - minimises ingestion latency)
+Pricing tier    : Pay-As-You-Go
+                  (First 5GB/month free - more than enough for this lab)
+```
+
+Wait for deployment (1-2 minutes).
