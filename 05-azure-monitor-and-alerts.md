@@ -112,3 +112,17 @@ and change tracking.
 
 This alert demonstrates the full Azure Monitor alerting stack: metric collection →
 threshold evaluation → action group notification.
+
+### Create an Action Group first (who gets notified):
+```
+Azure Portal → Monitor → Alerts → Action Groups → Create
+
+Resource Group  : rg-hybrid-lab
+Name            : ag-it-alerts
+Display Name    : IT Alerts
+
+Notifications:
+  Notification type : Email/SMS/Push/Voice
+  Name              : Email-IT-Team
+  Email             : [your email address]
+```
