@@ -83,3 +83,13 @@ Windows Event Logs to collect:
   Security    : Audit Success, Audit Failure
   System      : Critical, Error, Warning
 ```
+
+### For vm-ubuntu (Linux VM):
+```
+Azure Portal → Virtual Machines → vm-ubuntu →
+  Monitoring → Insights → Enable
+
+Workspace : law-hybrid-lab
+
+This installs the Azure Monitor Agent and configures basic Linux metric collection.
+```
