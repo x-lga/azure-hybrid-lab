@@ -66,3 +66,20 @@ between query simplicity (one workspace) and access isolation (multiple workspac
 
 Diagnostic Settings must be configured on each resource individually. There is no
 "enable for all VMs" option - it is per-resource.
+
+### For vm-win-server (Windows VM):
+```
+Azure Portal → Virtual Machines → vm-win-server →
+  Monitoring → Diagnostic settings → Enable guest-level monitoring
+
+Destination:
+  Send to Log Analytics workspace → law-hybrid-lab
+
+Performance counters to collect:
+  [All selected - CPU, Memory, Disk, Network]
+
+Windows Event Logs to collect:
+  Application: Critical, Error, Warning
+  Security    : Audit Success, Audit Failure
+  System      : Critical, Error, Warning
+```
