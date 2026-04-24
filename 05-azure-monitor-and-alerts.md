@@ -61,3 +61,8 @@ test, prod), others per team, others per data sensitivity level. The tradeoff is
 between query simplicity (one workspace) and access isolation (multiple workspaces).
 
 ---
+
+## Step 2 - Enable Diagnostic Settings on Both VMs
+
+Diagnostic Settings must be configured on each resource individually. There is no
+"enable for all VMs" option - it is per-resource.
