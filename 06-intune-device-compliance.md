@@ -32,3 +32,20 @@ The M365 Dev tenant is separate from your Azure free trial subscription. Intune
 operations in this section use the dev tenant.
 
 ---
+
+## Step 1 - Enroll a Windows Device into Intune MDM
+
+Manual MDM enrollment from a domain-joined or Azure AD-joined Windows 10/11 machine:
+
+```
+Settings → Accounts → Access work or school →
+  Connect → Enter your M365 dev tenant credentials:
+  Username : testuser1@contosodemo.onmicrosoft.com
+  Password : [password]
+→ The device enrolls into Intune MDM
+
+OR for a newer Windows 11 device:
+Settings → Accounts → Access work or school →
+  Enroll only in device management →
+  Enter M365 credentials
+```
