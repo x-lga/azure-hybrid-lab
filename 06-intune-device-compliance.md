@@ -112,3 +112,12 @@ After creating the policy:
 Intune Portal → Devices → All Devices → [your enrolled device]
 Device status should show: Compliant or Not Compliant
 ```
+
+If Non-Compliant, click the device to see which settings are failing.
+Common causes:
+- BitLocker not enabled on the test VM (expected — enable BitLocker or
+  update the policy to not require it for the lab)
+- OS version below minimum (update the machine or lower the requirement)
+- Password policy not enforced (configure via Local Group Policy or Configuration Profile)
+
+---
