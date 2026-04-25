@@ -121,3 +121,42 @@ Common causes:
 - Password policy not enforced (configure via Local Group Policy or Configuration Profile)
 
 ---
+
+## Step 3 — Create a Device Configuration Profile
+
+Configuration profiles push settings to devices — equivalent to Group Policy Objects
+but managed from the cloud and applied to Entra ID-joined or Intune-enrolled devices.
+
+```
+Intune Portal → Devices → Configuration Profiles →
+  Create Profile → Windows 10 and later → Settings Catalog
+
+Name: config-security-baseline-windows
+
+Add settings — search for and add each:
+
+Category: Device Lock
+  DevicePasswordEnabled                : Enabled
+  DevicePasswordHistory                : 5
+  DevicePasswordExpiration             : 90
+  MinDevicePasswordLength              : 10
+  AlphanumericDevicePasswordRequired   : Required
+
+Category: Windows Defender
+  AllowRealTimeMonitoring              : Allowed
+  AllowCloudProtection                 : Allowed
+  EnableNetworkProtection              : Enabled (Block mode)
+
+Category: Windows Update
+  AutoUpdateMode                       : Auto-install and restart at scheduled time
+  ScheduledInstallDay                  : Every Sunday
+  ScheduledInstallTime                 : 2 AM
+
+Category: Browser (if Edge is in scope)
+  PreventSmartScreenPromptOverride     : Enabled
+  SmartScreenEnabled                   : Enabled
+
+Assignments:
+  Assign to: All Devices
+```
+
