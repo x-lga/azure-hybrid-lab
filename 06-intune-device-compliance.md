@@ -62,3 +62,47 @@ The enrolled device should appear within 5–10 minutes.
 - Conditional Access can block/allow access based on compliance state
 
 ---
+
+## Step 2 — Create a Windows Device Compliance Policy
+
+A compliance policy defines the requirements a device must meet to be considered
+"compliant." Non-compliant devices can be blocked from accessing M365 and Azure
+resources via Conditional Access policies.
+
+```
+Intune Portal (endpoint.microsoft.com) →
+  Devices → Compliance Policies → Create Policy →
+  Platform: Windows 10 and later
+
+Name: compliance-windows-security-baseline
+
+Settings — Device Health:
+  Require BitLocker encryption       : Require
+  Require Secure Boot                : Require
+  Require code integrity             : Require
+
+Settings — Device Properties:
+  Minimum OS version                 : 10.0.19041
+  (Windows 10 May 2020 Update — baseline minimum)
+
+Settings — System Security:
+  Require password to unlock mobile  : Require
+  Required password type             : Alphanumeric
+  Minimum password length            : 10
+  Password expiration (days)         : 90
+  Number of previous passwords to    : 5
+    prevent reuse
+  Encryption of data storage         : Require
+  Firewall                           : Require
+  Antivirus (Windows Security)       : Require
+  Antispyware (Windows Security)     : Require
+  Microsoft Defender Antimalware     : Require
+
+Settings — Microsoft Defender for Endpoint:
+  Require machine risk score ≤       : Low
+  (If Defender for Endpoint is licensed)
+
+Assignments:
+  Assign to: All Devices
+  (or assign to a specific group for scoped rollout)
+```
