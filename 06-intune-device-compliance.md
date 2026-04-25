@@ -177,3 +177,40 @@ Windows applications (.exe, .msi) without user interaction.
 **Prerequisites - Win32 Content Prep Tool:**
 Download from: `https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool`
 This tool converts your installer into an `.intunewin` package that Intune can deploy.
+
+**Example: Deploy 7-Zip silently**
+
+1. Download 7-Zip installer: `7z2301-x64.exe` from 7-zip.org
+2. Package with the Content Prep Tool:
+```cmd
+IntuneWinAppUtil.exe -c C:\Apps\7zip -s 7z2301-x64.exe -o C:\Output
+```
+This creates: `7z2301-x64.intunewin`
+
+3. Upload to Intune:
+```
+Intune Portal → Apps → Windows Apps → Add →
+  App type: Windows app (Win32)
+
+Upload: [select 7z2301-x64.intunewin]
+
+App information:
+  Name        : 7-Zip 23.01
+  Description : [optional]
+  Publisher   : Igor Pavlov
+
+Program:
+  Install command   : 7z2301-x64.exe /S
+  Uninstall command : MsiExec.exe /X{23170F69-40C1-2702-2301-000001000000} /quiet
+  Install behavior  : System
+
+Detection rules:
+  Rule type : File
+  Path      : C:\Program Files\7-Zip
+  File      : 7z.exe
+  Detection method: File or folder exists
+
+Assignments:
+  Required: All Devices
+  (Required means install automatically — user does not need to trigger it)
+```
