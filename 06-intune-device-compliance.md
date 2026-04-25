@@ -20,3 +20,15 @@ requirements - Intune is increasingly the standard for endpoint management,
 replacing on-premises Group Policy for modern device management.
 
 ---
+
+## Prerequisites
+
+This lab uses the **M365 Developer E5 Sandbox**, which is free for 90 days and
+includes Intune, Entra ID P2, Microsoft Defender, and the full Microsoft 365 suite.
+
+Sign up at: `https://developer.microsoft.com/en-us/microsoft-365/dev-program`
+
+The M365 Dev tenant is separate from your Azure free trial subscription. Intune
+operations in this section use the dev tenant.
+
+---
