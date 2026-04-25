@@ -115,7 +115,7 @@ Device status should show: Compliant or Not Compliant
 
 If Non-Compliant, click the device to see which settings are failing.
 Common causes:
-- BitLocker not enabled on the test VM (expected — enable BitLocker or
+- BitLocker not enabled on the test VM (expected - enable BitLocker or
   update the policy to not require it for the lab)
 - OS version below minimum (update the machine or lower the requirement)
 - Password policy not enforced (configure via Local Group Policy or Configuration Profile)
@@ -124,7 +124,7 @@ Common causes:
 
 ## Step 3 - Create a Device Configuration Profile
 
-Configuration profiles push settings to devices — equivalent to Group Policy Objects
+Configuration profiles push settings to devices - equivalent to Group Policy Objects
 but managed from the cloud and applied to Entra ID-joined or Intune-enrolled devices.
 
 ```
@@ -224,7 +224,7 @@ Shows: Installed / Pending / Failed per device
 
 ---
 
-## Step 5 — Configure Conditional Access (Require Compliant Device)
+## Step 5 - Configure Conditional Access (Require Compliant Device)
 
 Conditional Access ties Intune compliance to resource access. Non-compliant devices
 are blocked from M365 and Azure until they meet the compliance policy requirements.
@@ -251,3 +251,13 @@ Session:
 
 Enable policy: On (in Report-only mode first for testing)
 ```
+
+**Test the policy:**
+1. From a non-enrolled device (or a device showing Non-Compliant in Intune):
+   Navigate to `portal.office.com` and sign in with a test account
+2. If the Conditional Access policy is working, access is blocked with a message:
+   "Your device does not meet the compliance requirements set by your organisation"
+3. The user is given instructions to enroll the device in Intune to regain access
+
+
+---
