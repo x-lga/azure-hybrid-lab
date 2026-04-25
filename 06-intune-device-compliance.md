@@ -106,3 +106,9 @@ Assignments:
   Assign to: All Devices
   (or assign to a specific group for scoped rollout)
 ```
+
+After creating the policy:
+```
+Intune Portal → Devices → All Devices → [your enrolled device]
+Device status should show: Compliant or Not Compliant
+```
