@@ -63,7 +63,7 @@ The enrolled device should appear within 5–10 minutes.
 
 ---
 
-## Step 2 — Create a Windows Device Compliance Policy
+## Step 2 - Create a Windows Device Compliance Policy
 
 A compliance policy defines the requirements a device must meet to be considered
 "compliant." Non-compliant devices can be blocked from accessing M365 and Azure
@@ -122,7 +122,7 @@ Common causes:
 
 ---
 
-## Step 3 — Create a Device Configuration Profile
+## Step 3 - Create a Device Configuration Profile
 
 Configuration profiles push settings to devices — equivalent to Group Policy Objects
 but managed from the cloud and applied to Entra ID-joined or Intune-enrolled devices.
@@ -168,3 +168,8 @@ Shows: Succeeded / Error / Conflict per device
 ```
 
 ---
+
+## Step 4 - Deploy a Win32 Application Silently
+
+Win32 app deployment through Intune allows silent installation of traditional
+Windows applications (.exe, .msi) without user interaction.
