@@ -55,3 +55,10 @@ Settings → Accounts → Access work or school →
 endpoint.microsoft.com → Devices → All Devices
 The enrolled device should appear within 5–10 minutes.
 ```
+
+**What enrollment establishes:**
+- Intune can now push configuration profiles, compliance policies, and apps
+- The device reports its compliance status to Intune
+- Conditional Access can block/allow access based on compliance state
+
+---
