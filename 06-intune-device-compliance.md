@@ -223,3 +223,31 @@ Shows: Installed / Pending / Failed per device
 ```
 
 ---
+
+## Step 5 — Configure Conditional Access (Require Compliant Device)
+
+Conditional Access ties Intune compliance to resource access. Non-compliant devices
+are blocked from M365 and Azure until they meet the compliance policy requirements.
+
+```
+Azure Portal → Entra ID → Security → Conditional Access →
+  New Policy
+
+Name: CA-Require-Compliant-Device
+
+Assignments:
+  Users: [select specific test users or All Users]
+  Target resources: All cloud apps (or select specific apps like M365)
+
+Conditions:
+  Device platforms: Windows
+
+Access controls — Grant:
+  Require device to be marked as compliant: Selected
+  (this requires Intune compliance policy to show Compliant)
+
+Session:
+  Sign-in frequency: 7 days (optional — forces re-auth periodically)
+
+Enable policy: On (in Report-only mode first for testing)
+```
