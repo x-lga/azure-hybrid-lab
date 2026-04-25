@@ -159,4 +159,12 @@ Category: Browser (if Edge is in scope)
 Assignments:
   Assign to: All Devices
 ```
+After saving and assigning:
+```
+Intune Portal → Devices → Configuration Profiles →
+  [your profile] → Device Status
 
+Shows: Succeeded / Error / Conflict per device
+```
+
+---
