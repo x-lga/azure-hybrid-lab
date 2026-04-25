@@ -49,3 +49,9 @@ Settings → Accounts → Access work or school →
   Enroll only in device management →
   Enter M365 credentials
 ```
+
+**Verify enrollment in Intune:**
+```
+endpoint.microsoft.com → Devices → All Devices
+The enrolled device should appear within 5–10 minutes.
+```
