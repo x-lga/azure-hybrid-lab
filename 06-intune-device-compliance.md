@@ -173,3 +173,7 @@ Shows: Succeeded / Error / Conflict per device
 
 Win32 app deployment through Intune allows silent installation of traditional
 Windows applications (.exe, .msi) without user interaction.
+
+**Prerequisites - Win32 Content Prep Tool:**
+Download from: `https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool`
+This tool converts your installer into an `.intunewin` package that Intune can deploy.
