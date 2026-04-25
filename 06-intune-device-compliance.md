@@ -214,3 +214,12 @@ Assignments:
   Required: All Devices
   (Required means install automatically — user does not need to trigger it)
 ```
+
+**Verify deployment:**
+```
+Intune Portal → Apps → All Apps → 7-Zip 23.01 → Device Install Status
+
+Shows: Installed / Pending / Failed per device
+```
+
+---
