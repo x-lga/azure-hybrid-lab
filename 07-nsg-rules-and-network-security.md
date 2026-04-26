@@ -42,3 +42,15 @@ wins" logic used by pfSense and most enterprise firewalls.
 | 65000 | AllowVnetInBound | Allow | All intra-VNet traffic |
 | 65001 | AllowAzureLoadBalancerInBound | Allow | Azure LB health probes |
 | 65500 | DenyAllInBound | Deny | All other inbound traffic |
+
+
+### Outbound Rules
+
+| Priority | Name | Port | Protocol | Source | Destination | Action | Justification |
+|---------|------|------|---------|--------|------------|--------|---------------|
+| 100 | Allow-HTTPS-Outbound | 443 | TCP | Any | Internet | Allow | HTTPS to internet - Windows Update, Azure agents, AD Connect |
+| 200 | Allow-HTTP-Outbound | 80 | TCP | Any | Internet | Allow | HTTP to internet - package managers, some update channels |
+| 300 | Allow-DNS-Outbound | 53 | UDP | Any | Any | Allow | DNS resolution |
+| 4000 | Deny-All-Outbound | * | Any | Any | Internet | Deny | Explicit default deny for internet outbound - only allowed ports above |
+
+---
