@@ -34,3 +34,11 @@ wins" logic used by pfSense and most enterprise firewalls.
 | 210 | Allow-SSH-VNet | 22 | TCP | VirtualNetwork | VirtualNetwork | Allow | SSH management between VMs within the VNet |
 | 300 | Allow-HTTPS-Inbound | 443 | TCP | AzureLoadBalancer | Any | Allow | Allow Azure infrastructure health probes |
 | 4000 | Deny-All-Inbound | * | Any | Any | Any | Deny | Explicit default deny — documents security posture |
+
+**Default rules (cannot be deleted, shown for reference):**
+
+| Priority | Name | Action | What It Allows |
+|---------|------|--------|---------------|
+| 65000 | AllowVnetInBound | Allow | All intra-VNet traffic |
+| 65001 | AllowAzureLoadBalancerInBound | Allow | Azure LB health probes |
+| 65500 | DenyAllInBound | Deny | All other inbound traffic |
