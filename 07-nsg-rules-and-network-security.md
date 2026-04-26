@@ -118,13 +118,13 @@ Azure Portal → Network Security Groups → nsg-subnet-servers →
 
 Version          : Version 2 (includes bytes transferred)
 Storage Account  : Create new → stghybridlabflows[randomsuffix]
-Retention days   : 7 (free tier — longer retention costs more)
-Traffic analytics: Enable (optional — requires Log Analytics Workspace)
+Retention days   : 7 (free tier - longer retention costs more)
+Traffic analytics: Enable (optional - requires Log Analytics Workspace)
 ```
 
 After flow logs are enabled, query them in Log Analytics:
 ```kql
-// NSG denied inbound connections — last 24 hours
+// NSG denied inbound connections - last 24 hours
 AzureNetworkAnalytics_CL
 | where TimeGenerated > ago(24h)
     and SubType_s == "FlowLog"
@@ -137,3 +137,10 @@ AzureNetworkAnalytics_CL
 ```
 
 ---
+
+## Common NSG Troubleshooting Scenarios
+
+### Scenario: VM cannot reach the internet for Windows Update
+
+**Symptom:** Windows Update on vm-win-server shows "We can't connect to the update
+service" or times out.
