@@ -164,3 +164,10 @@ If missing: add outbound allow for TCP 443 to Internet
 ### Scenario: Cannot establish a PowerShell remote session from one VM to another
 
 **Symptom:** `Invoke-Command -ComputerName vm-win-server` fails with connection refused.
+
+**Investigation:**
+```powershell
+# Test WinRM port connectivity
+Test-NetConnection -ComputerName 10.20.1.4 -Port 5985
+# If TcpTestSucceeded = False: NSG is blocking WinRM or WinRM is not configured
+```
