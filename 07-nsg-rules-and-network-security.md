@@ -55,10 +55,10 @@ wins" logic used by pfSense and most enterprise firewalls.
 
 ---
 
-## Effective Security Rules — How to Check What Is Actually Applied
+## Effective Security Rules - How to Check What Is Actually Applied
 
 The "Effective Security Rules" view in the Azure Portal shows the combined NSG
-rules as they actually apply to a specific VM's NIC — accounting for subnet-level
+rules as they actually apply to a specific VM's NIC - accounting for subnet-level
 and NIC-level NSGs together. This is the definitive source of truth for what
 traffic is allowed or denied to a specific VM.
 
@@ -73,5 +73,36 @@ This shows:
   - Which NSG each rule comes from (subnet or NIC)
   - The final action after all rules are evaluated
 ```
+
+---
+
+## IP Flow Verify - Testing Specific Traffic
+
+IP Flow Verify answers the question: "Will Azure allow a packet from IP X to reach
+VM Y on port Z?" without needing to actually send the traffic.
+
+```
+Azure Portal → Virtual Machines → vm-win-server →
+  Networking → Network Watcher → IP Flow Verify
+
+OR
+
+Azure Portal → Network Watcher → IP Flow Verify
+
+Settings:
+  VM                  : vm-win-server
+  Network interface   : [auto-populated]
+  Protocol            : TCP
+  Direction           : Inbound
+  Local IP address    : 10.20.1.4 (VM private IP)
+  Local port          : 3389
+  Remote IP address   : [test IP address]
+  Remote port         : 12345 (the source port — usually random)
+
+Result: "Access allowed" or "Access denied" + which rule caused the result
+```
+
+This is faster than trying to connect and seeing if it works — and it tells you
+exactly which NSG rule is responsible for the allow or deny.
 
 ---
