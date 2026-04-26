@@ -22,3 +22,15 @@ traffic is applied and no further rules are evaluated. This is the same "first m
 wins" logic used by pfSense and most enterprise firewalls.
 
 ---
+
+## NSG Rule Documentation: nsg-subnet-servers
+
+### Inbound Rules
+
+| Priority | Name | Port | Protocol | Source | Destination | Action | Justification |
+|---------|------|------|---------|--------|------------|--------|---------------|
+| 100 | Allow-RDP-MyIP | 3389 | TCP | [My Home IP] | Any | Allow | RDP from admin machine only (belt-and-suspenders alongside Bastion) |
+| 200 | Allow-WinRM-VNet | 5985 | TCP | VirtualNetwork | VirtualNetwork | Allow | PowerShell remoting between VMs within the VNet |
+| 210 | Allow-SSH-VNet | 22 | TCP | VirtualNetwork | VirtualNetwork | Allow | SSH management between VMs within the VNet |
+| 300 | Allow-HTTPS-Inbound | 443 | TCP | AzureLoadBalancer | Any | Allow | Allow Azure infrastructure health probes |
+| 4000 | Deny-All-Inbound | * | Any | Any | Any | Deny | Explicit default deny — documents security posture |
