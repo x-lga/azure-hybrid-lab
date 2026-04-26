@@ -106,3 +106,34 @@ This is faster than trying to connect and seeing if it works — and it tells yo
 exactly which NSG rule is responsible for the allow or deny.
 
 ---
+
+## NSG Diagnostic Logging - NSG Flow Logs
+
+NSG Flow Logs record every accepted and denied network flow through an NSG.
+They are essential for security investigation and network traffic analysis.
+
+```
+Azure Portal → Network Security Groups → nsg-subnet-servers →
+  Monitoring → NSG Flow Logs → Create
+
+Version          : Version 2 (includes bytes transferred)
+Storage Account  : Create new → stghybridlabflows[randomsuffix]
+Retention days   : 7 (free tier — longer retention costs more)
+Traffic analytics: Enable (optional — requires Log Analytics Workspace)
+```
+
+After flow logs are enabled, query them in Log Analytics:
+```kql
+// NSG denied inbound connections — last 24 hours
+AzureNetworkAnalytics_CL
+| where TimeGenerated > ago(24h)
+    and SubType_s == "FlowLog"
+    and Direction_s == "I"
+    and FlowStatus_s == "D"
+| summarize DeniedFlows = count() by
+    NSGRule_s, SourceIP_s, DestinationPort_d
+| order by DeniedFlows desc
+| take 20
+```
+
+---
