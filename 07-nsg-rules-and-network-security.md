@@ -154,3 +154,9 @@ Test-NetConnection -ComputerName windowsupdate.microsoft.com -Port 443
 Test-NetConnection -ComputerName 8.8.8.8 -Port 443
 # Tests if HTTPS to a known external IP works
 ```
+
+**NSG check:**
+```
+Effective Security Rules → look for Allow-HTTPS-Outbound rule
+If missing: add outbound allow for TCP 443 to Internet
+```
