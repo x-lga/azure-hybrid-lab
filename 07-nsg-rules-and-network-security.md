@@ -171,3 +171,15 @@ If missing: add outbound allow for TCP 443 to Internet
 Test-NetConnection -ComputerName 10.20.1.4 -Port 5985
 # If TcpTestSucceeded = False: NSG is blocking WinRM or WinRM is not configured
 ```
+
+**Fixes in order:**
+1. Check NSG inbound rule allows TCP 5985 from VirtualNetwork (Allow-WinRM-VNet)
+2. Check WinRM is running on the target VM:
+   ```powershell
+   Get-Service WinRM
+   Enable-PSRemoting -Force
+   ```
+3. Check Windows Firewall on the target VM:
+   ```powershell
+   Get-NetFirewallRule -DisplayName "*Remote Management*" | Select-Object Name, Enabled, Action
+   ```
