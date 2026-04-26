@@ -160,3 +160,7 @@ Test-NetConnection -ComputerName 8.8.8.8 -Port 443
 Effective Security Rules → look for Allow-HTTPS-Outbound rule
 If missing: add outbound allow for TCP 443 to Internet
 ```
+
+### Scenario: Cannot establish a PowerShell remote session from one VM to another
+
+**Symptom:** `Invoke-Command -ComputerName vm-win-server` fails with connection refused.
