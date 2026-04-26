@@ -144,3 +144,13 @@ AzureNetworkAnalytics_CL
 
 **Symptom:** Windows Update on vm-win-server shows "We can't connect to the update
 service" or times out.
+
+**Investigation:**
+```powershell
+# On the VM — test if HTTPS outbound is working
+Test-NetConnection -ComputerName windowsupdate.microsoft.com -Port 443
+# Expected: TcpTestSucceeded = True if NSG allows HTTPS outbound
+
+Test-NetConnection -ComputerName 8.8.8.8 -Port 443
+# Tests if HTTPS to a known external IP works
+```
