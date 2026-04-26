@@ -54,3 +54,24 @@ wins" logic used by pfSense and most enterprise firewalls.
 | 4000 | Deny-All-Outbound | * | Any | Any | Internet | Deny | Explicit default deny for internet outbound - only allowed ports above |
 
 ---
+
+## Effective Security Rules — How to Check What Is Actually Applied
+
+The "Effective Security Rules" view in the Azure Portal shows the combined NSG
+rules as they actually apply to a specific VM's NIC — accounting for subnet-level
+and NIC-level NSGs together. This is the definitive source of truth for what
+traffic is allowed or denied to a specific VM.
+
+```
+Azure Portal → Virtual Machines → vm-win-server →
+  Networking → [network interface name] →
+  Effective security rules
+
+This shows:
+  - Inbound rules with their source
+  - Outbound rules with their source
+  - Which NSG each rule comes from (subnet or NIC)
+  - The final action after all rules are evaluated
+```
+
+---
