@@ -136,3 +136,9 @@ need continuous full CPU performance. The B1s accrues CPU credits when idle and
 spends them during bursts. For a lab VM that is mostly idle with occasional bursts
 of activity, this is exactly the right fit - and B1s is free-tier eligible for 750
 hours/month for the first 12 months.
+
+**The limitation:**
+B1s has only 1GB RAM. Windows Server 2022 runs acceptably with 1GB for basic
+domain controller functions in a lab, but would be unsuitable for any production
+workload. In production, domain controllers typically have a minimum of 4–8GB RAM
+(D2s_v3 or equivalent).
