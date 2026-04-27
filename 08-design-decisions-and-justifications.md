@@ -36,3 +36,12 @@ protection as AD itself, and the hash that is synced is already a derived hash -
 not the NT hash that an attacker could use for Pass-the-Hash attacks directly.
 In practice, PHS is considered acceptable by most security frameworks including
 ISO 27001 and NIST.
+
+**When to choose PTA instead:**
+PTA is the right choice when an organisation has a compliance requirement that
+passwords (including their hashes) must never leave the on-premises network.
+Common in government, banking, and heavily regulated industries. PTA sends
+authentication requests to an on-premises agent that validates them against AD
+and returns a yes/no to Entra ID. No password material leaves the network.
+The tradeoff is the operational dependency on the on-premises infrastructure
+being available.
