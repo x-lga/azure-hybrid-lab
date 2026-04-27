@@ -142,3 +142,10 @@ B1s has only 1GB RAM. Windows Server 2022 runs acceptably with 1GB for basic
 domain controller functions in a lab, but would be unsuitable for any production
 workload. In production, domain controllers typically have a minimum of 4–8GB RAM
 (D2s_v3 or equivalent).
+
+**In an interview:** If asked "why B1s instead of a larger VM?", the answer is:
+"This is a lab for learning and demonstrating concepts - the B1s is free-tier eligible
+and sufficient for the workloads involved. For production, I would size based on the
+actual workload requirements and Microsoft's DC sizing guidance."
+
+---
