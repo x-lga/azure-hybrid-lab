@@ -22,3 +22,17 @@ PHS synchronises a hash of the on-premises password hash to Entra ID. The actual
 password never leaves on-premises - only a salted, hashed representation is synced.
 When a user authenticates to a cloud service, Entra ID validates the password hash
 locally in the cloud without needing to reach back to the on-premises DC.
+
+**Operational advantage for a lab environment:**
+If the Proxmox host is shut down (as it often is in a lab to save electricity),
+users can still authenticate to cloud services using PHS. The cloud has the hash
+and can validate it independently. PTA, by contrast, requires the on-premises DC
+to be reachable for every authentication - if the Proxmox VM is off, nobody can log in.
+
+**Security considerations:**
+PHS has been the subject of concern that "password hashes in the cloud" is a risk.
+Microsoft's response is that the hashes are stored using the same cryptographic
+protection as AD itself, and the hash that is synced is already a derived hash -
+not the NT hash that an attacker could use for Pass-the-Hash attacks directly.
+In practice, PHS is considered acceptable by most security frameworks including
+ISO 27001 and NIST.
