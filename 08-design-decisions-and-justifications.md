@@ -187,3 +187,13 @@ enterprise Azure environments.
 VMs in the same VNet can communicate with each other by default (subject to NSG rules).
 No additional configuration is needed. Deploying both VMs in one VNet keeps the
 lab simple and costs nothing extra.
+
+**When to use VNet peering instead:**
+VNet peering connects two separate VNets so they can communicate. It is needed when:
+- Resources are in different Azure regions and need to communicate
+- Resources are managed by different teams with separate subscriptions
+- Network isolation between environments (dev vs prod) is required
+
+For this single-team lab in a single region, a single VNet is the correct choice.
+
+---
