@@ -176,3 +176,8 @@ enterprise Azure environments.
 
 ---
 
+## Decision 6: Single VNet with two subnets instead of VNet peering
+
+**What was chosen:** Single VNet (10.20.0.0/16) with subnet-servers and subnet-linux
+
+**What was not chosen:** Two separate VNets with VNet peering
