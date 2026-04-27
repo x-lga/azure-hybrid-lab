@@ -201,3 +201,16 @@ For this single-team lab in a single region, a single VNet is the correct choice
 ## Decision 7: M365 Developer E5 Tenant for Intune instead of a paid licence
 
 **What was chosen:** M365 Developer E5 Sandbox (free 90-day tenant)
+
+**Why:**
+Intune requires a paid Microsoft 365 or Intune standalone licence. The M365 Developer
+E5 Sandbox provides the full suite including Intune, Entra ID P2, Defender for
+Endpoint, and Microsoft 365 E5 for free for 90 days. This is specifically designed
+for developers and IT professionals learning Microsoft technologies.
+
+The tenant auto-renews every 90 days as long as you use it actively.
+
+Sign up: `https://developer.microsoft.com/en-us/microsoft-365/dev-program`
+
+
+---
