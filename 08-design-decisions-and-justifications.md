@@ -167,3 +167,12 @@ Log Analytics adds queryable log data: Windows Event Logs (Security, System,
 Application), Syslog from Linux, performance counters over time, and all Azure
 activity operations. The combination of metrics (for alerting) and logs
 (for investigation) is what real security monitoring requires.
+
+**Critical additional benefit:**
+KQL queries in Log Analytics are exactly the same language used in Microsoft Sentinel
+(Azure's cloud SIEM). Learning KQL in Log Analytics directly transfers to Sentinel
+skills. This lab builds the same query skills used by SOC analysts working in
+enterprise Azure environments.
+
+---
+
