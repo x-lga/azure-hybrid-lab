@@ -122,3 +122,17 @@ architect managing the entire Azure environment, or a service principal used by 
 CI/CD pipeline that deploys to any resource group.
 
 ---
+
+## Decision 4: B1s VM size instead of larger
+
+**What was chosen:** Standard_B1s (1 vCPU, 1GB RAM)
+
+**What was not chosen:** D-series, E-series, or other production-grade VM sizes
+
+**Why B1s was chosen:**
+
+The B-series (Burstable) VMs are specifically designed for workloads that do not
+need continuous full CPU performance. The B1s accrues CPU credits when idle and
+spends them during bursts. For a lab VM that is mostly idle with occasional bursts
+of activity, this is exactly the right fit - and B1s is free-tier eligible for 750
+hours/month for the first 12 months.
