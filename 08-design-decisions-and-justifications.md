@@ -54,3 +54,28 @@ custom claims transformation. Most organisations have moved away from AD FS towa
 PHS or PTA plus Entra ID Conditional Access.
 
 ---
+
+## Decision 2: Azure Bastion instead of Public IP + RDP
+
+**What was chosen:** Azure Bastion (Developer SKU) with no public IP on any VM
+
+**What was not chosen:** Public IP address on each VM with RDP/SSH open to the internet
+
+**Why Bastion was chosen:**
+
+RDP (port 3389) and SSH (port 22) exposed on a public IP receive automated
+brute-force attacks within minutes of being created. This is not theoretical -
+Azure Security Centre reports show that internet-facing VMs with RDP exposed are
+probed thousands of times per day. Common passwords are tried automatically by
+credential stuffing bots.
+
+Bastion provides RDP and SSH access through the browser over HTTPS (port 443),
+which is almost always already open and does not expose management ports to the
+internet. The VMs have no public IP at all - they are entirely inaccessible from
+the internet.
+
+**Additional security benefit:**
+Bastion requires Azure AD authentication before you can connect to any VM behind it.
+This means MFA, Conditional Access, and Entra ID identity controls apply to VM access.
+A public IP with RDP has no such protection - it is only protected by the local
+Windows credentials on the VM.
