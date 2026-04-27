@@ -181,3 +181,9 @@ enterprise Azure environments.
 **What was chosen:** Single VNet (10.20.0.0/16) with subnet-servers and subnet-linux
 
 **What was not chosen:** Two separate VNets with VNet peering
+
+**Why single VNet was chosen:**
+
+VMs in the same VNet can communicate with each other by default (subject to NSG rules).
+No additional configuration is needed. Deploying both VMs in one VNet keeps the
+lab simple and costs nothing extra.
