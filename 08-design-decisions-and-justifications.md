@@ -156,3 +156,14 @@ actual workload requirements and Microsoft's DC sizing guidance."
 metrics and logs to the workspace
 
 **What was not chosen:** Azure Monitor Metrics only (without Log Analytics)
+
+**Why Log Analytics was chosen:**
+
+Azure Monitor Metrics provides numeric time-series data - CPU %, disk I/O,
+network bytes. This is sufficient for dashboards and threshold-based alerts.
+It does not support investigation queries.
+
+Log Analytics adds queryable log data: Windows Event Logs (Security, System,
+Application), Syslog from Linux, performance counters over time, and all Azure
+activity operations. The combination of metrics (for alerting) and logs
+(for investigation) is what real security monitoring requires.
