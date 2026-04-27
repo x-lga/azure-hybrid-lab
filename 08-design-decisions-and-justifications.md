@@ -149,3 +149,10 @@ and sufficient for the workloads involved. For production, I would size based on
 actual workload requirements and Microsoft's DC sizing guidance."
 
 ---
+
+## Decision 5: Log Analytics Workspace instead of just Azure Monitor Metrics
+
+**What was chosen:** Log Analytics Workspace with Diagnostic Settings routing both
+metrics and logs to the workspace
+
+**What was not chosen:** Azure Monitor Metrics only (without Log Analytics)
