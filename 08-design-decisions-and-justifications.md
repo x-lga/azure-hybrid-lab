@@ -109,3 +109,8 @@ same subscription.
 Contributor at the Resource Group level gives them everything they need (full
 management of all resources within rg-hybrid-lab) without the risk of accidentally
 affecting other resources.
+
+**The least privilege principle in action:**
+The question to ask is: "What is the narrowest scope at which this person can do
+their job?" For a junior admin working on this specific lab, the answer is Resource
+Group scope. Subscription scope is broader than necessary.
