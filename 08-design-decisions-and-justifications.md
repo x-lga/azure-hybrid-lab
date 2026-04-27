@@ -79,3 +79,9 @@ Bastion requires Azure AD authentication before you can connect to any VM behind
 This means MFA, Conditional Access, and Entra ID identity controls apply to VM access.
 A public IP with RDP has no such protection - it is only protected by the local
 Windows credentials on the VM.
+
+**Cost tradeoff:**
+Bastion has a cost - the Developer SKU is approximately $0.19/hour when active.
+For this lab, Bastion is started when needed and stopped when not in use to minimise
+cost. In production, the cost of Bastion (approximately $140/month for Standard SKU)
+is far less than the cost of a ransomware incident from a compromised internet-facing RDP.
