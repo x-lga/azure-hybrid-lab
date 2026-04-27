@@ -114,3 +114,11 @@ affecting other resources.
 The question to ask is: "What is the narrowest scope at which this person can do
 their job?" For a junior admin working on this specific lab, the answer is Resource
 Group scope. Subscription scope is broader than necessary.
+
+**When to assign at Subscription scope:**
+Subscription-level Contributor is appropriate for a full subscription administrator —
+someone responsible for all resources in the subscription. Examples: a senior cloud
+architect managing the entire Azure environment, or a service principal used by a
+CI/CD pipeline that deploys to any resource group.
+
+---
