@@ -45,3 +45,12 @@ authentication requests to an on-premises agent that validates them against AD
 and returns a yes/no to Entra ID. No password material leaves the network.
 The tradeoff is the operational dependency on the on-premises infrastructure
 being available.
+
+**When to choose AD FS instead:**
+AD FS (Active Directory Federation Services) provides full federation with claims-based
+authentication. It is the most complex and expensive option. It is required for
+specific scenarios like smart card authentication, on-premises MFA solutions, or
+custom claims transformation. Most organisations have moved away from AD FS toward
+PHS or PTA plus Entra ID Conditional Access.
+
+---
