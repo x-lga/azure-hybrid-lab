@@ -85,3 +85,10 @@ Bastion has a cost - the Developer SKU is approximately $0.19/hour when active.
 For this lab, Bastion is started when needed and stopped when not in use to minimise
 cost. In production, the cost of Bastion (approximately $140/month for Standard SKU)
 is far less than the cost of a ransomware incident from a compromised internet-facing RDP.
+
+**Alternative for labs:** Azure JIT (Just-In-Time) VM access via Microsoft Defender
+for Cloud is a lower-cost alternative for temporary port opening. It requires Defender
+for Cloud (paid) and opens the port for a limited time window only. Not used in this
+lab to keep costs zero where possible.
+
+---
