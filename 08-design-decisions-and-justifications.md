@@ -92,3 +92,20 @@ for Cloud (paid) and opens the port for a limited time window only. Not used in 
 lab to keep costs zero where possible.
 
 ---
+
+## Decision 3: RBAC at Resource Group scope for the Junior Admin, not Subscription scope
+
+**What was chosen:** Contributor role at Resource Group scope (rg-hybrid-lab)
+
+**What was not chosen:** Contributor at Subscription scope
+
+**Why Resource Group scope was chosen:**
+
+Assigning Contributor at the subscription level would give the junior admin
+Contributor access to every resource group in the subscription - including any
+other labs, test environments, or production resources that might exist in the
+same subscription.
+
+Contributor at the Resource Group level gives them everything they need (full
+management of all resources within rg-hybrid-lab) without the risk of accidentally
+affecting other resources.
