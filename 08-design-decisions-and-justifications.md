@@ -197,3 +197,7 @@ VNet peering connects two separate VNets so they can communicate. It is needed w
 For this single-team lab in a single region, a single VNet is the correct choice.
 
 ---
+
+## Decision 7: M365 Developer E5 Tenant for Intune instead of a paid licence
+
+**What was chosen:** M365 Developer E5 Sandbox (free 90-day tenant)
