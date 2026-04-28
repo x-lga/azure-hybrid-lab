@@ -128,3 +128,15 @@ When AD Connect shows connectivity errors to Azure, check:
 3. Any proxy or firewall rules that might be blocking based on domain rather than IP
 
 ---
+
+## Issue 3: Splunk Universal Forwarder Not Sending Events to Log Analytics (Wrong Tool)
+
+**What happened:**
+(This issue involved a conceptual error, not a misconfiguration)
+
+Initially attempted to forward Windows Security events to the Log Analytics Workspace
+using the Splunk Universal Forwarder (which was already deployed in the lab for Repo #3).
+The Splunk Forwarder was sending events to the Splunk Free instance, but I wanted
+the same events in Azure Log Analytics for KQL querying.
+
+
