@@ -97,3 +97,26 @@ Azure AD hostnames were being blocked. Checked the pfSense firewall logs.
 pfSense had a DNS-based block rule targeting `microsoftonline.com` and related domains
 (inherited from a DNS block list I had applied for ad-blocking purposes - the block
 list incorrectly classified some Microsoft domains as advertising trackers).
+
+**Fix:**
+In pfSense:
+```
+DNS Resolver → Host Overrides → Add explicit allow for:
+  login.microsoftonline.com
+  login.windows.net
+  aadcdn.msftauth.net
+  graph.microsoft.com
+  account.activedirectory.windowsazure.com
+
+OR: Disable the DNS block list entirely for the DC's outbound traffic
+```
+
+Added the Azure AD endpoints to a DNS whitelist that overrides the block list.
+
+After the fix:
+```powershell
+Test-NetConnection -ComputerName "login.microsoftonline.com" -Port 443
+# Result: TcpTestSucceeded = True
+```
+
+Ran a manual sync cycle - completed successfully.
