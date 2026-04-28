@@ -72,3 +72,23 @@ failed run profile, not just the top-level status. The AD permissions issue was
 buried in the expanded details.
 
 ---
+
+## Issue 2: pfSense Firewall Blocking AD Connect Sync Traffic to Azure
+
+**What happened:**
+After initial sync completed successfully, AD Connect stopped syncing the following
+day. The Synchronisation Service Manager showed "connectivity error" for the
+Azure connector. The on-premises DC could not reach Azure Entra ID endpoints.
+
+**Investigation:**
+```powershell
+# Test HTTPS connectivity to Azure AD endpoints
+Test-NetConnection -ComputerName "login.microsoftonline.com" -Port 443
+# Result: TcpTestSucceeded = False
+
+Test-NetConnection -ComputerName "8.8.8.8" -Port 443
+# Result: TcpTestSucceeded = True (internet itself was reachable)
+```
+
+This isolated the issue: port 443 to the internet worked generally, but the specific
+Azure AD hostnames were being blocked. Checked the pfSense firewall logs.
