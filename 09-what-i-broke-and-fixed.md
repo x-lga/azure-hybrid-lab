@@ -196,3 +196,24 @@ The Windows 10 VM in the Proxmox home lab is a **Generation 1 VM** without UEFI
 firmware. BitLocker requires a TPM chip (or UEFI with BitLocker in software mode),
 and Secure Boot requires UEFI. A Gen 1 Proxmox VM has neither.
 
+This is a lab hardware limitation, not a misconfiguration.
+
+**Fix options:**
+Option A (chosen): Update the compliance policy to not require BitLocker and Secure Boot
+for this specific device group (lab devices). Create a separate compliance policy for
+production devices that requires them.
+
+Option B: Recreate the Proxmox VM as a Generation 2 (UEFI) VM, which supports
+virtual TPM and Secure Boot in Proxmox 8.x.
+
+```
+Intune Portal → Devices → Compliance Policies → compliance-windows-security-baseline →
+  Properties → Edit →
+  Disable: "Require BitLocker" → Set to Not Configured
+  Disable: "Require Secure Boot" → Set to Not Configured
+
+Save and sync the device (check in via Settings → Accounts → Access work or school → Info → Sync)
+```
+
+Device status updated to **Compliant** within 5 minutes of the policy update syncing.
+
