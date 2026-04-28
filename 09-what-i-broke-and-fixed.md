@@ -173,3 +173,21 @@ destinations:
 These are not interchangeable. The destination determines which agent you install.
 
 ---
+
+## Issue 4: Intune Device Showing "Not Compliant" After Enrollment
+
+**What happened:**
+After enrolling the Windows 10 VM into Intune and applying the compliance policy
+(compliance-windows-security-baseline), the device showed "Not Compliant" with
+two failing requirements: BitLocker and Secure Boot.
+
+**Investigation:**
+```
+Intune Portal → Devices → All Devices → [device name] → Device Compliance →
+  Click on the policy → Shows which settings are non-compliant
+
+Failing:
+  - BitLocker: Not Configured
+  - Secure Boot: Not Configured
+```
+
