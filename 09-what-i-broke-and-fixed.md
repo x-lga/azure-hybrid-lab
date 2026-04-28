@@ -225,3 +225,14 @@ relaxed requirements for legacy hardware with a migration timeline.
 
 ---
 
+## Issue 5: VM Allocation Failed on First Deployment
+
+**What happened:**
+On the first attempt to deploy vm-win-server, the deployment failed with:
+`AllocationFailed - Could not complete the request due to insufficient capacity.`
+
+**Root cause:**
+The B1s VM size was not available in the selected region (East US 2) at that moment.
+Azure regions have physical capacity limits and popular VM sizes can temporarily be
+unavailable.
+
