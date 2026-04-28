@@ -63,3 +63,12 @@ Start-ADSyncSyncCycle -PolicyType Initial
 ```
 
 Sync completed successfully. Users appeared in Entra ID within 2 minutes.
+
+
+**Lesson learned:**
+The "stopped-extension-dll-exception" error in AD Connect is a generic catch-all
+that can mean many things. Always check the full error details by clicking on the
+failed run profile, not just the top-level status. The AD permissions issue was
+buried in the expanded details.
+
+---
