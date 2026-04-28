@@ -92,3 +92,8 @@ Test-NetConnection -ComputerName "8.8.8.8" -Port 443
 
 This isolated the issue: port 443 to the internet worked generally, but the specific
 Azure AD hostnames were being blocked. Checked the pfSense firewall logs.
+
+**Root cause:**
+pfSense had a DNS-based block rule targeting `microsoftonline.com` and related domains
+(inherited from a DNS block list I had applied for ad-blocking purposes - the block
+list incorrectly classified some Microsoft domains as advertising trackers).
