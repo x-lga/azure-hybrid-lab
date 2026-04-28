@@ -139,4 +139,7 @@ using the Splunk Universal Forwarder (which was already deployed in the lab for 
 The Splunk Forwarder was sending events to the Splunk Free instance, but I wanted
 the same events in Azure Log Analytics for KQL querying.
 
-
+**Root cause:**
+Conceptual misunderstanding: the Splunk Universal Forwarder sends data to Splunk only.
+Azure Log Analytics uses a completely different agent - the **Azure Monitor Agent (AMA)**
+or the legacy **Log Analytics Agent (MMA/OMS agent)**.
