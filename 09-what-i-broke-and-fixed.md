@@ -236,3 +236,26 @@ The B1s VM size was not available in the selected region (East US 2) at that mom
 Azure regions have physical capacity limits and popular VM sizes can temporarily be
 unavailable.
 
+**Fix:**
+Tried two approaches in order:
+
+Approach 1: Deallocate and restart (moves to a different host cluster):
+```
+Azure Portal → vm-win-server → Overview → Stop (Deallocate)
+Wait 3 minutes
+Azure Portal → vm-win-server → Overview → Start
+```
+
+Approach 1 failed because the VM had never deployed successfully, so there was
+nothing to deallocate.
+
+Approach 2: Change the region to UK South:
+```
+Azure Portal → rg-hybrid-lab → vm-win-server → Delete
+Redeploy with Region: UK South
+Deployment succeeded immediately
+```
+
+Updated all subsequent resources to UK South for consistency.
+
+
