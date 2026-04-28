@@ -191,3 +191,8 @@ Failing:
   - Secure Boot: Not Configured
 ```
 
+**Root cause:**
+The Windows 10 VM in the Proxmox home lab is a **Generation 1 VM** without UEFI
+firmware. BitLocker requires a TPM chip (or UEFI with BitLocker in software mode),
+and Secure Boot requires UEFI. A Gen 1 Proxmox VM has neither.
+
