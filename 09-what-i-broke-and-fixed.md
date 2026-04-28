@@ -263,10 +263,23 @@ Updated all subsequent resources to UK South for consistency.
 When deploying VMs in Azure:
 1. Prefer regions with lower demand (US East 2 and US West 2 are very popular and
    can have capacity constraints for free-tier sizes)
-2. If `AllocationFailed` occurs: try `Stop (Deallocate)` → `Start` first —
+2. If `AllocationFailed` occurs: try `Stop (Deallocate)` → `Start` first -
    this is different from Restart and moves the VM to a new host cluster
 3. If that fails: try a different region or a slightly different VM size
 4. Always choose the same region for all resources in a deployment to avoid
    cross-region data transfer costs
+
+**The Stop vs Restart distinction is an AZ-104 exam topic:**
+- **Restart:** VM stays on the same physical host in Azure. Same cluster allocation.
+              Used for OS-level reboots. Does not resolve AllocationFailed.
+- **Stop (Deallocate):** VM is removed from the physical host. The next Start may
+  place it on a different host. Resolves AllocationFailed. Releases the public IP
+  if not using a static allocation.
+- **Stop (but not deallocated):** VM is powered off but still allocated on a host.
+  You are still billed for compute. Not useful for AllocationFailed.
+
+
+---
+
 
 
