@@ -161,3 +161,15 @@ Installed the correct agent on the Windows DC:
 After installing the Azure Monitor Agent on the on-premises DC via Azure Arc,
 the DC appeared in the Log Analytics Workspace as a connected data source and
 Windows Security events began flowing within 15 minutes.
+
+**Lesson learned:**
+In a hybrid environment, there are multiple monitoring agents with different
+destinations:
+- **Splunk Universal Forwarder** → sends to Splunk
+- **Azure Monitor Agent (AMA)** → sends to Log Analytics Workspace / Azure Monitor
+- **Microsoft Defender for Endpoint sensor** → sends to Microsoft Defender portal
+- **Sysmon** → writes to Windows Event Log (then forwarded by either agent above)
+
+These are not interchangeable. The destination determines which agent you install.
+
+---
