@@ -217,3 +217,11 @@ Save and sync the device (check in via Settings → Accounts → Access work or 
 
 Device status updated to **Compliant** within 5 minutes of the policy update syncing.
 
+**Lesson learned:**
+Compliance policies must account for hardware capabilities. In production, you would
+create separate compliance policy assignments for device groups based on hardware
+generation - stricter requirements for modern hardware (Gen 2, UEFI, TPM 2.0),
+relaxed requirements for legacy hardware with a migration timeline.
+
+---
+
