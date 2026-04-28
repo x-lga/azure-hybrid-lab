@@ -34,3 +34,32 @@ The express settings installation creates a service account (`MSOL_[hash]`) and
 should automatically grant it the required AD permissions. However, in this lab
 environment, a restrictive GPO was preventing the automatic delegation of the
 "Replicate Directory Changes" permission.
+
+**Fix:**
+```powershell
+# Grant the required permissions manually to the ADSync service account
+# First, identify the service account name
+Get-ADServiceAccount -Filter {Name -like "MSOL*"}
+# Or check the ADSync connector configuration:
+# Synchronisation Service → Connectors → [AD connector] → Properties →
+#   Connect to Active Directory Forest → Account
+
+# Grant "Replicate Directory Changes" to the service account
+# This must be done on the domain root:
+Import-Module ActiveDirectory
+$ServiceAccount = "MSOL_abc123def456"  # Replace with actual account name
+$DomainDN = (Get-ADDomain).DistinguishedName
+
+# Use ADUC GUI:
+# Active Directory Users and Computers →
+# Right-click the domain root → Delegate Control →
+# Add the MSOL account →
+# Select: "Replicate directory changes"
+```
+
+After granting the permission, ran a full sync cycle:
+```powershell
+Start-ADSyncSyncCycle -PolicyType Initial
+```
+
+Sync completed successfully. Users appeared in Entra ID within 2 minutes.
