@@ -143,3 +143,21 @@ the same events in Azure Log Analytics for KQL querying.
 Conceptual misunderstanding: the Splunk Universal Forwarder sends data to Splunk only.
 Azure Log Analytics uses a completely different agent - the **Azure Monitor Agent (AMA)**
 or the legacy **Log Analytics Agent (MMA/OMS agent)**.
+
+**Fix:**
+Installed the correct agent on the Windows DC:
+
+```powershell
+# Install the Azure Monitor Agent via the Azure Portal:
+# Azure Portal → Virtual Machines → vm-win-server →
+#   Extensions + Applications → Add →
+#   Azure Monitor Agent → Install
+
+# For on-premises machines (not Azure VMs), use Azure Arc:
+# Azure Portal → Azure Arc → Servers → Add → Generate install script →
+# Run the generated script on the on-premises DC
+```
+
+After installing the Azure Monitor Agent on the on-premises DC via Azure Arc,
+the DC appeared in the Log Analytics Workspace as a connected data source and
+Windows Security events began flowing within 15 minutes.
