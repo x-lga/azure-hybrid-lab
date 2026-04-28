@@ -120,3 +120,11 @@ Test-NetConnection -ComputerName "login.microsoftonline.com" -Port 443
 ```
 
 Ran a manual sync cycle - completed successfully.
+
+**Lesson learned:**
+When AD Connect shows connectivity errors to Azure, check:
+1. Direct network connectivity to Azure endpoints (Test-NetConnection)
+2. DNS resolution for Azure hostnames (nslookup login.microsoftonline.com)
+3. Any proxy or firewall rules that might be blocking based on domain rather than IP
+
+---
