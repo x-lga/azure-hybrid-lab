@@ -28,3 +28,9 @@ in the Synchronisation Service Manager Operations tab. No users were being synce
        Select-Object TimeGenerated, EntryType, Message
    ```
 6. Found: The ADSync service account did not have the required AD permissions
+
+**Root cause:**
+The express settings installation creates a service account (`MSOL_[hash]`) and
+should automatically grant it the required AD permissions. However, in this lab
+environment, a restrictive GPO was preventing the automatic delegation of the
+"Replicate Directory Changes" permission.
