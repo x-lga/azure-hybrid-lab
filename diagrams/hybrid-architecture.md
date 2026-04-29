@@ -86,3 +86,28 @@
 ```
 
 ---
+
+## Component Configuration Summary
+
+| Component | Configuration | Key Setting |
+|-----------|-------------|------------|
+| contoso.local domain | Windows Server 2022 | Domain: contoso.local, Forest Level: 2016 |
+| AD Connect | PHS mode | Sync interval: 30 min, Scope: all users/groups |
+| vnet-hybrid-lab | Azure VNet | Address space: 10.20.0.0/16 |
+| subnet-servers | VNet subnet | 10.20.1.0/24, NSG: nsg-subnet-servers |
+| subnet-linux | VNet subnet | 10.20.2.0/24 |
+| AzureBastionSubnet | VNet subnet | 10.20.254.0/27 (minimum required size) |
+| nsg-subnet-servers | NSG | Deny-all with explicit allows for RDP (my IP), WinRM, SSH (VNet only) |
+| vm-win-server | Azure VM | Standard_B1s, Windows Server 2022, no public IP |
+| vm-ubuntu | Azure VM | Standard_B1s, Ubuntu 22.04, no public IP |
+| Azure Bastion | Bastion | Developer SKU, public IP: bastion-pip |
+| law-hybrid-lab | Log Analytics | 5GB/month free tier, 30-day retention |
+| ag-it-alerts | Action Group | Email notification to admin |
+| alert-cpu-high | Alert rule | CPU > 80% for 5 min → fires to ag-it-alerts |
+| Intune compliance | Compliance policy | BitLocker, Secure Boot, password complexity |
+| junioradmin RBAC | Role assignment | Contributor at rg-hybrid-lab |
+| auditor RBAC | Role assignment | Reader at Subscription |
+| vmoperator RBAC | Role assignment | VM Contributor at vm-win-server |
+
+
+---
